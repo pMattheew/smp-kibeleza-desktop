@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlCadServico = new System.Windows.Forms.Panel();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +52,10 @@
             this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
             this.lblDataCad = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.txtTexto = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.lblTempo = new System.Windows.Forms.Label();
+            this.lblEmpresa = new System.Windows.Forms.Label();
             this.lblTexto = new System.Windows.Forms.Label();
             this.lblDescricao = new System.Windows.Forms.Label();
             this.txtNomeServico = new System.Windows.Forms.TextBox();
@@ -61,12 +66,7 @@
             this.lblCodigo = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
-            this.lblCadEmpresa = new System.Windows.Forms.Label();
-            this.txtTexto = new System.Windows.Forms.TextBox();
-            this.lblTempo = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblEmpresa = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.lblCadServico = new System.Windows.Forms.Label();
             this.pnlCadServico.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -108,11 +108,29 @@
             this.pnlCadServico.Controls.Add(this.lblCodigo);
             this.pnlCadServico.Controls.Add(this.btnLimpar);
             this.pnlCadServico.Controls.Add(this.btnSalvar);
-            this.pnlCadServico.Controls.Add(this.lblCadEmpresa);
+            this.pnlCadServico.Controls.Add(this.lblCadServico);
             this.pnlCadServico.Location = new System.Drawing.Point(180, 84);
             this.pnlCadServico.Name = "pnlCadServico";
             this.pnlCadServico.Size = new System.Drawing.Size(1000, 600);
             this.pnlCadServico.TabIndex = 4;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(568, 481);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(244, 21);
+            this.comboBox2.TabIndex = 23;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(366, 481);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(96, 21);
+            this.comboBox1.TabIndex = 23;
             // 
             // panel3
             // 
@@ -357,6 +375,14 @@
             this.lblStatus.Text = "Status:";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // txtTexto
+            // 
+            this.txtTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtTexto.Location = new System.Drawing.Point(286, 440);
+            this.txtTexto.Name = "txtTexto";
+            this.txtTexto.Size = new System.Drawing.Size(663, 23);
+            this.txtTexto.TabIndex = 14;
+            // 
             // txtDescricao
             // 
             this.txtDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -364,6 +390,30 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(663, 23);
             this.txtDescricao.TabIndex = 14;
+            // 
+            // lblTempo
+            // 
+            this.lblTempo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblTempo.BackColor = System.Drawing.Color.Transparent;
+            this.lblTempo.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblTempo.Location = new System.Drawing.Point(180, 480);
+            this.lblTempo.Name = "lblTempo";
+            this.lblTempo.Size = new System.Drawing.Size(180, 22);
+            this.lblTempo.TabIndex = 13;
+            this.lblTempo.Text = "Tempo de execução:";
+            this.lblTempo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblEmpresa
+            // 
+            this.lblEmpresa.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblEmpresa.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmpresa.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblEmpresa.Location = new System.Drawing.Point(478, 480);
+            this.lblEmpresa.Name = "lblEmpresa";
+            this.lblEmpresa.Size = new System.Drawing.Size(100, 22);
+            this.lblEmpresa.TabIndex = 13;
+            this.lblEmpresa.Text = "Empresa:";
+            this.lblEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTexto
             // 
@@ -479,69 +529,19 @@
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             // 
-            // lblCadEmpresa
+            // lblCadServico
             // 
-            this.lblCadEmpresa.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblCadEmpresa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
-            this.lblCadEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblCadEmpresa.Font = new System.Drawing.Font("Britannic Bold", 16F);
-            this.lblCadEmpresa.ForeColor = System.Drawing.Color.White;
-            this.lblCadEmpresa.Location = new System.Drawing.Point(164, 0);
-            this.lblCadEmpresa.Name = "lblCadEmpresa";
-            this.lblCadEmpresa.Size = new System.Drawing.Size(836, 72);
-            this.lblCadEmpresa.TabIndex = 12;
-            this.lblCadEmpresa.Text = "CADASTRO DA EMPRESA";
-            this.lblCadEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtTexto
-            // 
-            this.txtTexto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtTexto.Location = new System.Drawing.Point(286, 440);
-            this.txtTexto.Name = "txtTexto";
-            this.txtTexto.Size = new System.Drawing.Size(663, 23);
-            this.txtTexto.TabIndex = 14;
-            // 
-            // lblTempo
-            // 
-            this.lblTempo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblTempo.BackColor = System.Drawing.Color.Transparent;
-            this.lblTempo.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblTempo.Location = new System.Drawing.Point(180, 480);
-            this.lblTempo.Name = "lblTempo";
-            this.lblTempo.Size = new System.Drawing.Size(180, 22);
-            this.lblTempo.TabIndex = 13;
-            this.lblTempo.Text = "Tempo de execução:";
-            this.lblTempo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(366, 481);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(96, 21);
-            this.comboBox1.TabIndex = 23;
-            // 
-            // lblEmpresa
-            // 
-            this.lblEmpresa.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEmpresa.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmpresa.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblEmpresa.Location = new System.Drawing.Point(478, 480);
-            this.lblEmpresa.Name = "lblEmpresa";
-            this.lblEmpresa.Size = new System.Drawing.Size(100, 22);
-            this.lblEmpresa.TabIndex = 13;
-            this.lblEmpresa.Text = "Empresa:";
-            this.lblEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(568, 481);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(244, 21);
-            this.comboBox2.TabIndex = 23;
+            this.lblCadServico.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblCadServico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            this.lblCadServico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblCadServico.Font = new System.Drawing.Font("Britannic Bold", 16F);
+            this.lblCadServico.ForeColor = System.Drawing.Color.White;
+            this.lblCadServico.Location = new System.Drawing.Point(164, 0);
+            this.lblCadServico.Name = "lblCadServico";
+            this.lblCadServico.Size = new System.Drawing.Size(836, 72);
+            this.lblCadServico.TabIndex = 12;
+            this.lblCadServico.Text = "CADASTRO DE SERVIÇO";
+            this.lblCadServico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmCadServico
             // 
@@ -591,7 +591,7 @@
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Label lblCadEmpresa;
+        private System.Windows.Forms.Label lblCadServico;
         private System.Windows.Forms.Panel pnlFoto1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button4;

@@ -77,5 +77,17 @@ namespace kibelezaPMS
             new frmEmail().Show();
             Hide();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            new frmCadReserva().Show();
+            Hide();
+        }
+
+        private void btnAgendar_Click(object sender, EventArgs e)
+        {
+            new frmCadReserva().Show();
+            Hide();
+        }
     }
 }

@@ -29,7 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.txtFuncionario = new System.Windows.Forms.TextBox();
+            this.chkFuncionario = new System.Windows.Forms.CheckBox();
+            this.chkCliente = new System.Windows.Forms.CheckBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
+            this.lblHora = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.picSair = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -49,12 +55,6 @@
             this.picServico = new System.Windows.Forms.PictureBox();
             this.picCliente = new System.Windows.Forms.PictureBox();
             this.picEmpresa = new System.Windows.Forms.PictureBox();
-            this.chkCliente = new System.Windows.Forms.CheckBox();
-            this.chkFuncionario = new System.Windows.Forms.CheckBox();
-            this.txtFuncionario = new System.Windows.Forms.TextBox();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.lblData = new System.Windows.Forms.Label();
-            this.lblHora = new System.Windows.Forms.Label();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
@@ -103,6 +103,42 @@
             this.pnlMenu.Size = new System.Drawing.Size(1000, 600);
             this.pnlMenu.TabIndex = 0;
             // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(339, 23);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.Size = new System.Drawing.Size(373, 25);
+            this.txtCliente.TabIndex = 7;
+            this.txtCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtFuncionario
+            // 
+            this.txtFuncionario.Location = new System.Drawing.Point(339, 54);
+            this.txtFuncionario.Name = "txtFuncionario";
+            this.txtFuncionario.Size = new System.Drawing.Size(373, 25);
+            this.txtFuncionario.TabIndex = 7;
+            this.txtFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // chkFuncionario
+            // 
+            this.chkFuncionario.AutoSize = true;
+            this.chkFuncionario.Location = new System.Drawing.Point(182, 50);
+            this.chkFuncionario.Name = "chkFuncionario";
+            this.chkFuncionario.Size = new System.Drawing.Size(145, 21);
+            this.chkFuncionario.TabIndex = 6;
+            this.chkFuncionario.Text = "FUNCIONÁRIO(A)";
+            this.chkFuncionario.UseVisualStyleBackColor = true;
+            // 
+            // chkCliente
+            // 
+            this.chkCliente.AutoSize = true;
+            this.chkCliente.Location = new System.Drawing.Point(182, 23);
+            this.chkCliente.Name = "chkCliente";
+            this.chkCliente.Size = new System.Drawing.Size(86, 21);
+            this.chkCliente.TabIndex = 6;
+            this.chkCliente.Text = "CLIENTE";
+            this.chkCliente.UseVisualStyleBackColor = true;
+            // 
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -116,6 +152,26 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(121, 25);
             this.cmbStatus.TabIndex = 5;
+            // 
+            // lblHora
+            // 
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            this.lblHora.Location = new System.Drawing.Point(26, 50);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(53, 17);
+            this.lblHora.TabIndex = 4;
+            this.lblHora.Text = "00:00";
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            this.lblData.Location = new System.Drawing.Point(26, 23);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(102, 17);
+            this.lblData.TabIndex = 4;
+            this.lblData.Text = "00/00/0000";
             // 
             // lblStatus
             // 
@@ -247,6 +303,7 @@
             this.picContato.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picContato.TabIndex = 0;
             this.picContato.TabStop = false;
+            this.picContato.Click += new System.EventHandler(this.picContato_Click);
             // 
             // picBanner
             // 
@@ -269,6 +326,7 @@
             this.picEmail.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEmail.TabIndex = 0;
             this.picEmail.TabStop = false;
+            this.picEmail.Click += new System.EventHandler(this.picEmail_Click);
             // 
             // picRelatorio
             // 
@@ -280,6 +338,7 @@
             this.picRelatorio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picRelatorio.TabIndex = 0;
             this.picRelatorio.TabStop = false;
+            this.picRelatorio.Click += new System.EventHandler(this.picRelatorio_Click);
             // 
             // picSobre
             // 
@@ -302,6 +361,7 @@
             this.picFuncionario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFuncionario.TabIndex = 0;
             this.picFuncionario.TabStop = false;
+            this.picFuncionario.Click += new System.EventHandler(this.picFuncionario_Click);
             // 
             // picServico
             // 
@@ -313,6 +373,7 @@
             this.picServico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picServico.TabIndex = 0;
             this.picServico.TabStop = false;
+            this.picServico.Click += new System.EventHandler(this.picServico_Click);
             // 
             // picCliente
             // 
@@ -324,6 +385,7 @@
             this.picCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picCliente.TabIndex = 0;
             this.picCliente.TabStop = false;
+            this.picCliente.Click += new System.EventHandler(this.picCliente_Click);
             // 
             // picEmpresa
             // 
@@ -335,62 +397,7 @@
             this.picEmpresa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picEmpresa.TabIndex = 0;
             this.picEmpresa.TabStop = false;
-            // 
-            // chkCliente
-            // 
-            this.chkCliente.AutoSize = true;
-            this.chkCliente.Location = new System.Drawing.Point(182, 23);
-            this.chkCliente.Name = "chkCliente";
-            this.chkCliente.Size = new System.Drawing.Size(86, 21);
-            this.chkCliente.TabIndex = 6;
-            this.chkCliente.Text = "CLIENTE";
-            this.chkCliente.UseVisualStyleBackColor = true;
-            // 
-            // chkFuncionario
-            // 
-            this.chkFuncionario.AutoSize = true;
-            this.chkFuncionario.Location = new System.Drawing.Point(182, 50);
-            this.chkFuncionario.Name = "chkFuncionario";
-            this.chkFuncionario.Size = new System.Drawing.Size(145, 21);
-            this.chkFuncionario.TabIndex = 6;
-            this.chkFuncionario.Text = "FUNCIONÁRIO(A)";
-            this.chkFuncionario.UseVisualStyleBackColor = true;
-            // 
-            // txtFuncionario
-            // 
-            this.txtFuncionario.Location = new System.Drawing.Point(339, 54);
-            this.txtFuncionario.Name = "txtFuncionario";
-            this.txtFuncionario.Size = new System.Drawing.Size(373, 25);
-            this.txtFuncionario.TabIndex = 7;
-            this.txtFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(339, 23);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.Size = new System.Drawing.Size(373, 25);
-            this.txtCliente.TabIndex = 7;
-            this.txtCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblData
-            // 
-            this.lblData.AutoSize = true;
-            this.lblData.Font = new System.Drawing.Font("Britannic Bold", 12F);
-            this.lblData.Location = new System.Drawing.Point(26, 23);
-            this.lblData.Name = "lblData";
-            this.lblData.Size = new System.Drawing.Size(102, 17);
-            this.lblData.TabIndex = 4;
-            this.lblData.Text = "00/00/0000";
-            // 
-            // lblHora
-            // 
-            this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("Britannic Bold", 12F);
-            this.lblHora.Location = new System.Drawing.Point(26, 50);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(53, 17);
-            this.lblHora.TabIndex = 4;
-            this.lblHora.Text = "00:00";
+            this.picEmpresa.Click += new System.EventHandler(this.picEmpresa_Click);
             // 
             // frmMenu
             // 

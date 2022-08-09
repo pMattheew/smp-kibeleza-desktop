@@ -91,5 +91,31 @@ namespace kibelezaPMS
             }
 
         }
+
+        private void txtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtSenha.Focus();
+            }
+        }
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnEntrar.PerformClick();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            txtEmail.Focus();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            txtSenha.Focus();
+        }
     }
 }

@@ -72,11 +72,13 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Location = new System.Drawing.Point(40, 118);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(280, 50);
             this.label1.TabIndex = 2;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox3
             // 
@@ -93,11 +95,13 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Cursor = System.Windows.Forms.Cursors.Default;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Location = new System.Drawing.Point(40, 184);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(280, 50);
             this.label2.TabIndex = 2;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pnlLogin
             // 
@@ -126,7 +130,7 @@
             this.btnEntrar.Location = new System.Drawing.Point(60, 277);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(240, 50);
-            this.btnEntrar.TabIndex = 5;
+            this.btnEntrar.TabIndex = 2;
             this.btnEntrar.Text = "ENTRAR";
             this.btnEntrar.UseVisualStyleBackColor = false;
             this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
@@ -138,8 +142,9 @@
             this.txtEmail.Location = new System.Drawing.Point(98, 136);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(199, 13);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 0;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtSenha
             // 
@@ -147,9 +152,11 @@
             this.txtSenha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSenha.Location = new System.Drawing.Point(98, 203);
             this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(199, 13);
-            this.txtSenha.TabIndex = 4;
+            this.txtSenha.TabIndex = 1;
             this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // pictureBox4
             // 

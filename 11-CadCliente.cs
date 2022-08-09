@@ -27,5 +27,17 @@ namespace kibelezaPMS
             new frmCliente().Show();
             Close();
         }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            new frmFoneCliente().Show();
+            Hide();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            new frmFoneCliente().Show();
+            Hide();
+        }
     }
 }

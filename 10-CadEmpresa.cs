@@ -27,5 +27,17 @@ namespace kibelezaPMS
         {
             pnlCadEmpresa.Location = new Point(this.Width / 2 - pnlCadEmpresa.Width / 2, this.Height / 2 - pnlCadEmpresa.Height / 2);
         }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            new frmFoneEmpresa().Show();
+            Hide();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            new frmFoneEmpresa().Show();
+            Hide();
+        }
     }
 }

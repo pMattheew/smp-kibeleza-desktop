@@ -130,6 +130,24 @@
     <Compile Include="14-CadReserva.Designer.cs">
       <DependentUpon>14-CadReserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="15-FoneEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="15-FoneEmpresa.Designer.cs">
+      <DependentUpon>15-FoneEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="16-FoneCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="16-FoneCliente.Designer.cs">
+      <DependentUpon>16-FoneCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="17-FoneFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="17-FoneFuncionario.Designer.cs">
+      <DependentUpon>17-FoneFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Variaveis.cs" />
@@ -174,6 +192,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="14-CadReserva.resx">
       <DependentUpon>14-CadReserva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="15-FoneEmpresa.resx">
+      <DependentUpon>15-FoneEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="16-FoneCliente.resx">
+      <DependentUpon>16-FoneCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="17-FoneFuncionario.resx">
+      <DependentUpon>17-FoneFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

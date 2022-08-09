@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             this.pnlCadFuncionario = new System.Windows.Forms.Panel();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.lblSenha = new System.Windows.Forms.Label();
             this.pnlTelefone = new System.Windows.Forms.Panel();
             this.dgvFoneFuncionario = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.picSair = new System.Windows.Forms.PictureBox();
+            this.cmbEmpresa = new System.Windows.Forms.ComboBox();
             this.cmbHorario = new System.Windows.Forms.ComboBox();
+            this.cmbNivel = new System.Windows.Forms.ComboBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblHorario = new System.Windows.Forms.Label();
             this.lblDataCad = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
@@ -50,12 +56,6 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblCadFuncionario = new System.Windows.Forms.Label();
-            this.txtSenha = new System.Windows.Forms.TextBox();
-            this.lblSenha = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbNivel = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbEmpresa = new System.Windows.Forms.ComboBox();
             this.pnlCadFuncionario.SuspendLayout();
             this.pnlTelefone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoneFuncionario)).BeginInit();
@@ -94,6 +94,26 @@
             this.pnlCadFuncionario.Size = new System.Drawing.Size(1000, 600);
             this.pnlCadFuncionario.TabIndex = 3;
             // 
+            // txtSenha
+            // 
+            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.txtSenha.Location = new System.Drawing.Point(184, 234);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(222, 23);
+            this.txtSenha.TabIndex = 21;
+            // 
+            // lblSenha
+            // 
+            this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblSenha.BackColor = System.Drawing.Color.Transparent;
+            this.lblSenha.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblSenha.Location = new System.Drawing.Point(180, 209);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(165, 22);
+            this.lblSenha.TabIndex = 20;
+            this.lblSenha.Text = "Senha:";
+            this.lblSenha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // pnlTelefone
             // 
             this.pnlTelefone.BackColor = System.Drawing.Color.Transparent;
@@ -131,6 +151,7 @@
             this.btnCadastrar.TabIndex = 11;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnAlterar
             // 
@@ -146,6 +167,7 @@
             this.btnAlterar.TabIndex = 11;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnExcluir
             // 
@@ -175,6 +197,15 @@
             this.picSair.TabStop = false;
             this.picSair.Click += new System.EventHandler(this.picSair_Click);
             // 
+            // cmbEmpresa
+            // 
+            this.cmbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpresa.FormattingEnabled = true;
+            this.cmbEmpresa.Location = new System.Drawing.Point(759, 447);
+            this.cmbEmpresa.Name = "cmbEmpresa";
+            this.cmbEmpresa.Size = new System.Drawing.Size(222, 21);
+            this.cmbEmpresa.TabIndex = 17;
+            // 
             // cmbHorario
             // 
             this.cmbHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -183,6 +214,18 @@
             this.cmbHorario.Name = "cmbHorario";
             this.cmbHorario.Size = new System.Drawing.Size(222, 21);
             this.cmbHorario.TabIndex = 17;
+            // 
+            // cmbNivel
+            // 
+            this.cmbNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNivel.FormattingEnabled = true;
+            this.cmbNivel.Items.AddRange(new object[] {
+            "Administrador",
+            "Outros"});
+            this.cmbNivel.Location = new System.Drawing.Point(472, 234);
+            this.cmbNivel.Name = "cmbNivel";
+            this.cmbNivel.Size = new System.Drawing.Size(222, 21);
+            this.cmbNivel.TabIndex = 17;
             // 
             // cmbStatus
             // 
@@ -210,6 +253,18 @@
             this.txtEmail.Size = new System.Drawing.Size(800, 23);
             this.txtEmail.TabIndex = 14;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.label2.Location = new System.Drawing.Point(759, 422);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(226, 22);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Empresa:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblHorario
             // 
             this.lblHorario.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -233,6 +288,18 @@
             this.lblDataCad.TabIndex = 13;
             this.lblDataCad.Text = "Data de cadastro:";
             this.lblDataCad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.label1.Location = new System.Drawing.Point(472, 209);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 22);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Nível:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblStatus
             // 
@@ -342,71 +409,6 @@
             this.lblCadFuncionario.Text = "CADASTRO DE FUNCIONÁRIO";
             this.lblCadFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtSenha
-            // 
-            this.txtSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtSenha.Location = new System.Drawing.Point(184, 234);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(222, 23);
-            this.txtSenha.TabIndex = 21;
-            // 
-            // lblSenha
-            // 
-            this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblSenha.BackColor = System.Drawing.Color.Transparent;
-            this.lblSenha.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblSenha.Location = new System.Drawing.Point(180, 209);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(165, 22);
-            this.lblSenha.TabIndex = 20;
-            this.lblSenha.Text = "Senha:";
-            this.lblSenha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.label1.Location = new System.Drawing.Point(472, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 22);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Nível:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbNivel
-            // 
-            this.cmbNivel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNivel.FormattingEnabled = true;
-            this.cmbNivel.Items.AddRange(new object[] {
-            "Administrador",
-            "Outros"});
-            this.cmbNivel.Location = new System.Drawing.Point(472, 234);
-            this.cmbNivel.Name = "cmbNivel";
-            this.cmbNivel.Size = new System.Drawing.Size(222, 21);
-            this.cmbNivel.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.label2.Location = new System.Drawing.Point(759, 422);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 22);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Empresa:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbEmpresa
-            // 
-            this.cmbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEmpresa.FormattingEnabled = true;
-            this.cmbEmpresa.Location = new System.Drawing.Point(759, 447);
-            this.cmbEmpresa.Name = "cmbEmpresa";
-            this.cmbEmpresa.Size = new System.Drawing.Size(222, 21);
-            this.cmbEmpresa.TabIndex = 17;
-            // 
             // frmCadFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,6 +417,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1360, 768);
             this.Controls.Add(this.pnlCadFuncionario);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCadFuncionario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

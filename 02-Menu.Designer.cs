@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.txtCliente = new System.Windows.Forms.TextBox();
             this.txtFuncionario = new System.Windows.Forms.TextBox();
@@ -55,6 +56,7 @@
             this.picServico = new System.Windows.Forms.PictureBox();
             this.picCliente = new System.Windows.Forms.PictureBox();
             this.picEmpresa = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenu)).BeginInit();
@@ -401,6 +403,12 @@
             this.picEmpresa.TabStop = false;
             this.picEmpresa.Click += new System.EventHandler(this.picEmpresa_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,5 +470,6 @@
         private System.Windows.Forms.CheckBox chkCliente;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Timer timer1;
     }
 }

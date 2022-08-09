@@ -23,6 +23,8 @@ namespace kibelezaPMS
             pnlMenu.Location = new Point(this.Width / 2 - pnlMenu.Width / 2, this.Height / 2 - pnlMenu.Height / 2);
 
             lblUsuario.Text = Variaveis.usuario + ", bem-vindo!";
+
+            timer1.Start();
         }
 
         private void picSair_Click(object sender, EventArgs e)
@@ -88,6 +90,12 @@ namespace kibelezaPMS
         {
             new frmCadReserva().Show();
             Hide();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblData.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

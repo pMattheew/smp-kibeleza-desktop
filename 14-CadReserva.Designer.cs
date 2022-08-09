@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.pnlCadReserva = new System.Windows.Forms.Panel();
+            this.calReserva = new System.Windows.Forms.MonthCalendar();
             this.lblSenha = new System.Windows.Forms.Label();
             this.picSair = new System.Windows.Forms.PictureBox();
+            this.cmbServico = new System.Windows.Forms.ComboBox();
+            this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.cmbFuncionario = new System.Windows.Forms.ComboBox();
             this.cmbReserva = new System.Windows.Forms.ComboBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtObservacao = new System.Windows.Forms.TextBox();
+            this.lblServico = new System.Windows.Forms.Label();
+            this.lblCliente = new System.Windows.Forms.Label();
             this.lblFuncionario = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -46,11 +51,6 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblCadReserva = new System.Windows.Forms.Label();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.lblServico = new System.Windows.Forms.Label();
-            this.cmbServico = new System.Windows.Forms.ComboBox();
-            this.calReserva = new System.Windows.Forms.MonthCalendar();
             this.pnlCadReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,12 @@
             this.pnlCadReserva.Size = new System.Drawing.Size(1000, 600);
             this.pnlCadReserva.TabIndex = 4;
             // 
+            // calReserva
+            // 
+            this.calReserva.Location = new System.Drawing.Point(184, 234);
+            this.calReserva.Name = "calReserva";
+            this.calReserva.TabIndex = 2;
+            // 
             // lblSenha
             // 
             this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -111,6 +117,24 @@
             this.picSair.TabStop = false;
             this.picSair.Click += new System.EventHandler(this.picSair_Click);
             // 
+            // cmbServico
+            // 
+            this.cmbServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbServico.FormattingEnabled = true;
+            this.cmbServico.Location = new System.Drawing.Point(472, 429);
+            this.cmbServico.Name = "cmbServico";
+            this.cmbServico.Size = new System.Drawing.Size(510, 21);
+            this.cmbServico.TabIndex = 7;
+            // 
+            // cmbCliente
+            // 
+            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCliente.FormattingEnabled = true;
+            this.cmbCliente.Location = new System.Drawing.Point(472, 364);
+            this.cmbCliente.Name = "cmbCliente";
+            this.cmbCliente.Size = new System.Drawing.Size(510, 21);
+            this.cmbCliente.TabIndex = 6;
+            // 
             // cmbFuncionario
             // 
             this.cmbFuncionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -118,7 +142,7 @@
             this.cmbFuncionario.Location = new System.Drawing.Point(472, 299);
             this.cmbFuncionario.Name = "cmbFuncionario";
             this.cmbFuncionario.Size = new System.Drawing.Size(510, 21);
-            this.cmbFuncionario.TabIndex = 17;
+            this.cmbFuncionario.TabIndex = 5;
             // 
             // cmbReserva
             // 
@@ -160,16 +184,19 @@
             this.cmbReserva.Location = new System.Drawing.Point(472, 234);
             this.cmbReserva.Name = "cmbReserva";
             this.cmbReserva.Size = new System.Drawing.Size(222, 21);
-            this.cmbReserva.TabIndex = 17;
+            this.cmbReserva.TabIndex = 3;
             // 
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
             this.cmbStatus.Location = new System.Drawing.Point(760, 234);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
-            this.cmbStatus.TabIndex = 17;
+            this.cmbStatus.TabIndex = 4;
             // 
             // txtObservacao
             // 
@@ -177,7 +204,31 @@
             this.txtObservacao.Location = new System.Drawing.Point(184, 171);
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(800, 23);
-            this.txtObservacao.TabIndex = 14;
+            this.txtObservacao.TabIndex = 1;
+            // 
+            // lblServico
+            // 
+            this.lblServico.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblServico.BackColor = System.Drawing.Color.Transparent;
+            this.lblServico.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblServico.Location = new System.Drawing.Point(472, 404);
+            this.lblServico.Name = "lblServico";
+            this.lblServico.Size = new System.Drawing.Size(226, 22);
+            this.lblServico.TabIndex = 13;
+            this.lblServico.Text = "Serviço:";
+            this.lblServico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCliente.BackColor = System.Drawing.Color.Transparent;
+            this.lblCliente.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblCliente.Location = new System.Drawing.Point(472, 339);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(226, 22);
+            this.lblCliente.TabIndex = 13;
+            this.lblCliente.Text = "Cliente:";
+            this.lblCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFuncionario
             // 
@@ -233,7 +284,7 @@
             this.txtNomeFuncionario.Location = new System.Drawing.Point(322, 109);
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
             this.txtNomeFuncionario.Size = new System.Drawing.Size(663, 23);
-            this.txtNomeFuncionario.TabIndex = 14;
+            this.txtNomeFuncionario.TabIndex = 0;
             // 
             // lblNomeFuncionario
             // 
@@ -293,7 +344,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(322, 550);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(193, 35);
-            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             // 
@@ -310,54 +361,6 @@
             this.lblCadReserva.TabIndex = 12;
             this.lblCadReserva.Text = "CADASTRO DE RESERVA";
             this.lblCadReserva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCliente
-            // 
-            this.lblCliente.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCliente.BackColor = System.Drawing.Color.Transparent;
-            this.lblCliente.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblCliente.Location = new System.Drawing.Point(472, 339);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(226, 22);
-            this.lblCliente.TabIndex = 13;
-            this.lblCliente.Text = "Cliente:";
-            this.lblCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbCliente
-            // 
-            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCliente.FormattingEnabled = true;
-            this.cmbCliente.Location = new System.Drawing.Point(472, 364);
-            this.cmbCliente.Name = "cmbCliente";
-            this.cmbCliente.Size = new System.Drawing.Size(510, 21);
-            this.cmbCliente.TabIndex = 17;
-            // 
-            // lblServico
-            // 
-            this.lblServico.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblServico.BackColor = System.Drawing.Color.Transparent;
-            this.lblServico.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblServico.Location = new System.Drawing.Point(472, 404);
-            this.lblServico.Name = "lblServico";
-            this.lblServico.Size = new System.Drawing.Size(226, 22);
-            this.lblServico.TabIndex = 13;
-            this.lblServico.Text = "Serviço:";
-            this.lblServico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // cmbServico
-            // 
-            this.cmbServico.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbServico.FormattingEnabled = true;
-            this.cmbServico.Location = new System.Drawing.Point(472, 429);
-            this.cmbServico.Name = "cmbServico";
-            this.cmbServico.Size = new System.Drawing.Size(510, 21);
-            this.cmbServico.TabIndex = 17;
-            // 
-            // calReserva
-            // 
-            this.calReserva.Location = new System.Drawing.Point(184, 234);
-            this.calReserva.Name = "calReserva";
-            this.calReserva.TabIndex = 21;
             // 
             // frmCadReserva
             // 

@@ -106,7 +106,7 @@
             this.button1.Location = new System.Drawing.Point(959, 502);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(25, 32);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 7;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -166,7 +166,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(107, 217);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(134, 35);
-            this.btnCadastrar.TabIndex = 11;
+            this.btnCadastrar.TabIndex = 9;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -182,7 +182,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(264, 217);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(134, 35);
-            this.btnAlterar.TabIndex = 11;
+            this.btnAlterar.TabIndex = 10;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -219,10 +219,13 @@
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
             this.cmbStatus.Location = new System.Drawing.Point(390, 231);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
-            this.cmbStatus.TabIndex = 17;
+            this.cmbStatus.TabIndex = 6;
             // 
             // mkdDataCad
             // 
@@ -237,10 +240,10 @@
             // 
             this.mkdCnpjCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.mkdCnpjCpf.Location = new System.Drawing.Point(184, 168);
-            this.mkdCnpjCpf.Mask = "00.000.000/0000-00";
+            this.mkdCnpjCpf.Mask = "00,000,000/0000-00";
             this.mkdCnpjCpf.Name = "mkdCnpjCpf";
             this.mkdCnpjCpf.Size = new System.Drawing.Size(161, 23);
-            this.mkdCnpjCpf.TabIndex = 16;
+            this.mkdCnpjCpf.TabIndex = 3;
             // 
             // radCpf
             // 
@@ -250,7 +253,7 @@
             this.radCpf.Location = new System.Drawing.Point(259, 141);
             this.radCpf.Name = "radCpf";
             this.radCpf.Size = new System.Drawing.Size(59, 25);
-            this.radCpf.TabIndex = 15;
+            this.radCpf.TabIndex = 2;
             this.radCpf.TabStop = true;
             this.radCpf.Text = "CPF";
             this.radCpf.UseVisualStyleBackColor = false;
@@ -263,18 +266,19 @@
             this.radCnpj.Location = new System.Drawing.Point(184, 141);
             this.radCnpj.Name = "radCnpj";
             this.radCnpj.Size = new System.Drawing.Size(69, 25);
-            this.radCnpj.TabIndex = 15;
+            this.radCnpj.TabIndex = 1;
             this.radCnpj.TabStop = true;
             this.radCnpj.Text = "CNPJ";
             this.radCnpj.UseVisualStyleBackColor = false;
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtEmail.Location = new System.Drawing.Point(391, 168);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(593, 23);
-            this.txtEmail.TabIndex = 14;
+            this.txtEmail.TabIndex = 4;
             // 
             // txtSenha
             // 
@@ -282,7 +286,7 @@
             this.txtSenha.Location = new System.Drawing.Point(184, 231);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(161, 23);
-            this.txtSenha.TabIndex = 14;
+            this.txtSenha.TabIndex = 5;
             // 
             // lblDataCad
             // 
@@ -326,7 +330,7 @@
             this.txtNomeCliente.Location = new System.Drawing.Point(322, 109);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(663, 23);
-            this.txtNomeCliente.TabIndex = 14;
+            this.txtNomeCliente.TabIndex = 0;
             // 
             // lblSenha
             // 
@@ -398,7 +402,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(322, 550);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(193, 35);
-            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             // 

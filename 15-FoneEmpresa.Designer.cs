@@ -74,7 +74,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(222, 240);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(305, 23);
-            this.txtDescricao.TabIndex = 27;
+            this.txtDescricao.TabIndex = 4;
             // 
             // label1
             // 
@@ -92,10 +92,16 @@
             // 
             this.cmbOperadora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOperadora.FormattingEnabled = true;
+            this.cmbOperadora.Items.AddRange(new object[] {
+            "OI",
+            "TIM",
+            "VIVO",
+            "CLARO",
+            "NEXTEL"});
             this.cmbOperadora.Location = new System.Drawing.Point(222, 191);
             this.cmbOperadora.Name = "cmbOperadora";
             this.cmbOperadora.Size = new System.Drawing.Size(305, 21);
-            this.cmbOperadora.TabIndex = 25;
+            this.cmbOperadora.TabIndex = 3;
             // 
             // lblOperadora
             // 
@@ -116,7 +122,7 @@
             this.mkdTelefone.Mask = "(00)00000-0000";
             this.mkdTelefone.Name = "mkdTelefone";
             this.mkdTelefone.Size = new System.Drawing.Size(305, 23);
-            this.mkdTelefone.TabIndex = 23;
+            this.mkdTelefone.TabIndex = 2;
             // 
             // lblTelefone
             // 
@@ -137,7 +143,7 @@
             this.cmbNomeEmpresa.Location = new System.Drawing.Point(222, 91);
             this.cmbNomeEmpresa.Name = "cmbNomeEmpresa";
             this.cmbNomeEmpresa.Size = new System.Drawing.Size(305, 21);
-            this.cmbNomeEmpresa.TabIndex = 21;
+            this.cmbNomeEmpresa.TabIndex = 1;
             // 
             // lblNomeEmpresa
             // 
@@ -210,7 +216,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(170, 350);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(193, 35);
-            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             // 

@@ -121,7 +121,7 @@
             this.comboBox2.Location = new System.Drawing.Point(568, 481);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(244, 21);
-            this.comboBox2.TabIndex = 23;
+            this.comboBox2.TabIndex = 10;
             // 
             // comboBox1
             // 
@@ -130,7 +130,7 @@
             this.comboBox1.Location = new System.Drawing.Point(366, 481);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(96, 21);
-            this.comboBox1.TabIndex = 23;
+            this.comboBox1.TabIndex = 9;
             // 
             // panel3
             // 
@@ -153,7 +153,7 @@
             this.button4.Location = new System.Drawing.Point(166, 143);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(25, 32);
-            this.button4.TabIndex = 11;
+            this.button4.TabIndex = 6;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = false;
             // 
@@ -200,7 +200,7 @@
             this.button3.Location = new System.Drawing.Point(166, 143);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(25, 32);
-            this.button3.TabIndex = 11;
+            this.button3.TabIndex = 5;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = false;
             // 
@@ -247,7 +247,7 @@
             this.button2.Location = new System.Drawing.Point(166, 143);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(25, 32);
-            this.button2.TabIndex = 11;
+            this.button2.TabIndex = 4;
             this.button2.Text = "+";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -294,7 +294,7 @@
             this.button1.Location = new System.Drawing.Point(166, 143);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(25, 32);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 3;
             this.button1.Text = "+";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -337,10 +337,13 @@
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
             this.cmbStatus.Location = new System.Drawing.Point(389, 168);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
-            this.cmbStatus.TabIndex = 17;
+            this.cmbStatus.TabIndex = 2;
             // 
             // mkdDataCad
             // 
@@ -381,7 +384,7 @@
             this.txtTexto.Location = new System.Drawing.Point(286, 440);
             this.txtTexto.Name = "txtTexto";
             this.txtTexto.Size = new System.Drawing.Size(663, 23);
-            this.txtTexto.TabIndex = 14;
+            this.txtTexto.TabIndex = 8;
             // 
             // txtDescricao
             // 
@@ -389,7 +392,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(286, 404);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(663, 23);
-            this.txtDescricao.TabIndex = 14;
+            this.txtDescricao.TabIndex = 7;
             // 
             // lblTempo
             // 
@@ -445,7 +448,7 @@
             this.txtNomeServico.Location = new System.Drawing.Point(322, 109);
             this.txtNomeServico.Name = "txtNomeServico";
             this.txtNomeServico.Size = new System.Drawing.Size(663, 23);
-            this.txtNomeServico.TabIndex = 14;
+            this.txtNomeServico.TabIndex = 0;
             // 
             // lblNomeServico
             // 
@@ -465,7 +468,7 @@
             this.txtValor.Location = new System.Drawing.Point(184, 168);
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(161, 23);
-            this.txtValor.TabIndex = 14;
+            this.txtValor.TabIndex = 1;
             // 
             // lblValor
             // 

@@ -101,6 +101,7 @@
             this.pnlTelefone.Controls.Add(this.btnCadastrar);
             this.pnlTelefone.Controls.Add(this.btnAlterar);
             this.pnlTelefone.Controls.Add(this.btnExcluir);
+            this.pnlTelefone.Enabled = false;
             this.pnlTelefone.Location = new System.Drawing.Point(184, 271);
             this.pnlTelefone.Name = "pnlTelefone";
             this.pnlTelefone.Size = new System.Drawing.Size(569, 263);
@@ -126,7 +127,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(107, 217);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(134, 35);
-            this.btnCadastrar.TabIndex = 11;
+            this.btnCadastrar.TabIndex = 9;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -142,7 +143,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(264, 217);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(134, 35);
-            this.btnAlterar.TabIndex = 11;
+            this.btnAlterar.TabIndex = 10;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -179,19 +180,31 @@
             // 
             this.cmbHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHorario.FormattingEnabled = true;
+            this.cmbHorario.Items.AddRange(new object[] {
+            "6:00",
+            "8:00",
+            "10:00",
+            "12:00",
+            "14:00",
+            "16:00"});
             this.cmbHorario.Location = new System.Drawing.Point(759, 454);
             this.cmbHorario.Name = "cmbHorario";
             this.cmbHorario.Size = new System.Drawing.Size(222, 21);
-            this.cmbHorario.TabIndex = 17;
+            this.cmbHorario.TabIndex = 7;
+            this.cmbHorario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbHorario_KeyPress);
             // 
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ATIVA",
+            "INATIVA"});
             this.cmbStatus.Location = new System.Drawing.Point(761, 314);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
-            this.cmbStatus.TabIndex = 17;
+            this.cmbStatus.TabIndex = 6;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // mkdDataCad
             // 
@@ -201,15 +214,18 @@
             this.mkdDataCad.Name = "mkdDataCad";
             this.mkdDataCad.Size = new System.Drawing.Size(222, 23);
             this.mkdDataCad.TabIndex = 16;
+            this.mkdDataCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // mkdCnpjCpf
             // 
             this.mkdCnpjCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.mkdCnpjCpf.Location = new System.Drawing.Point(184, 168);
-            this.mkdCnpjCpf.Mask = "00.000.000/0000-00";
+            this.mkdCnpjCpf.Mask = "00,000,000/0000-00";
             this.mkdCnpjCpf.Name = "mkdCnpjCpf";
             this.mkdCnpjCpf.Size = new System.Drawing.Size(161, 23);
-            this.mkdCnpjCpf.TabIndex = 16;
+            this.mkdCnpjCpf.TabIndex = 3;
+            this.mkdCnpjCpf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mkdCnpjCpf.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mkdCnpjCpf_KeyPress);
             // 
             // radCpf
             // 
@@ -219,39 +235,45 @@
             this.radCpf.Location = new System.Drawing.Point(259, 141);
             this.radCpf.Name = "radCpf";
             this.radCpf.Size = new System.Drawing.Size(59, 25);
-            this.radCpf.TabIndex = 15;
-            this.radCpf.TabStop = true;
+            this.radCpf.TabIndex = 2;
             this.radCpf.Text = "CPF";
             this.radCpf.UseVisualStyleBackColor = false;
+            this.radCpf.CheckedChanged += new System.EventHandler(this.radCpf_CheckedChanged);
             // 
             // radCnpj
             // 
             this.radCnpj.AutoSize = true;
             this.radCnpj.BackColor = System.Drawing.Color.Transparent;
+            this.radCnpj.Checked = true;
             this.radCnpj.Font = new System.Drawing.Font("Britannic Bold", 14F);
             this.radCnpj.Location = new System.Drawing.Point(184, 141);
             this.radCnpj.Name = "radCnpj";
             this.radCnpj.Size = new System.Drawing.Size(69, 25);
-            this.radCnpj.TabIndex = 15;
+            this.radCnpj.TabIndex = 1;
             this.radCnpj.TabStop = true;
             this.radCnpj.Text = "CNPJ";
             this.radCnpj.UseVisualStyleBackColor = false;
+            this.radCnpj.CheckedChanged += new System.EventHandler(this.radCnpj_CheckedChanged);
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtEmail.Location = new System.Drawing.Point(391, 168);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(593, 23);
-            this.txtEmail.TabIndex = 14;
+            this.txtEmail.TabIndex = 4;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtRazao
             // 
+            this.txtRazao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRazao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtRazao.Location = new System.Drawing.Point(184, 231);
             this.txtRazao.Name = "txtRazao";
             this.txtRazao.Size = new System.Drawing.Size(800, 23);
-            this.txtRazao.TabIndex = 14;
+            this.txtRazao.TabIndex = 5;
+            this.txtRazao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtRazao_KeyPress);
             // 
             // lblHorario
             // 
@@ -303,11 +325,13 @@
             // 
             // txtNomeEmpresa
             // 
+            this.txtNomeEmpresa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNomeEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtNomeEmpresa.Location = new System.Drawing.Point(322, 109);
             this.txtNomeEmpresa.Name = "txtNomeEmpresa";
             this.txtNomeEmpresa.Size = new System.Drawing.Size(663, 23);
-            this.txtNomeEmpresa.TabIndex = 14;
+            this.txtNomeEmpresa.TabIndex = 0;
+            this.txtNomeEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeEmpresa_KeyPress);
             // 
             // lblRazao
             // 
@@ -335,6 +359,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtCodigo.Location = new System.Drawing.Point(184, 109);
             this.txtCodigo.Name = "txtCodigo";
@@ -379,9 +404,10 @@
             this.btnSalvar.Location = new System.Drawing.Point(322, 550);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(193, 35);
-            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // lblCadEmpresa
             // 

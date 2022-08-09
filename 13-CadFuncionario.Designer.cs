@@ -100,7 +100,7 @@
             this.txtSenha.Location = new System.Drawing.Point(184, 234);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(222, 23);
-            this.txtSenha.TabIndex = 21;
+            this.txtSenha.TabIndex = 2;
             // 
             // lblSenha
             // 
@@ -148,7 +148,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(107, 217);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(134, 35);
-            this.btnCadastrar.TabIndex = 11;
+            this.btnCadastrar.TabIndex = 8;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
@@ -164,7 +164,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(264, 217);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(134, 35);
-            this.btnAlterar.TabIndex = 11;
+            this.btnAlterar.TabIndex = 9;
             this.btnAlterar.Text = "ALTERAR";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -180,7 +180,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(421, 217);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(134, 35);
-            this.btnExcluir.TabIndex = 11;
+            this.btnExcluir.TabIndex = 10;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
             // 
@@ -204,16 +204,24 @@
             this.cmbEmpresa.Location = new System.Drawing.Point(759, 447);
             this.cmbEmpresa.Name = "cmbEmpresa";
             this.cmbEmpresa.Size = new System.Drawing.Size(222, 21);
-            this.cmbEmpresa.TabIndex = 17;
+            this.cmbEmpresa.TabIndex = 6;
             // 
             // cmbHorario
             // 
             this.cmbHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHorario.FormattingEnabled = true;
+            this.cmbHorario.Items.AddRange(new object[] {
+            "4:00",
+            "5:00",
+            "6:00",
+            "7:00",
+            "8:00",
+            "9:00",
+            "10:00"});
             this.cmbHorario.Location = new System.Drawing.Point(759, 379);
             this.cmbHorario.Name = "cmbHorario";
             this.cmbHorario.Size = new System.Drawing.Size(222, 21);
-            this.cmbHorario.TabIndex = 17;
+            this.cmbHorario.TabIndex = 5;
             // 
             // cmbNivel
             // 
@@ -225,16 +233,19 @@
             this.cmbNivel.Location = new System.Drawing.Point(472, 234);
             this.cmbNivel.Name = "cmbNivel";
             this.cmbNivel.Size = new System.Drawing.Size(222, 21);
-            this.cmbNivel.TabIndex = 17;
+            this.cmbNivel.TabIndex = 3;
             // 
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
+            this.cmbStatus.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
             this.cmbStatus.Location = new System.Drawing.Point(760, 234);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
-            this.cmbStatus.TabIndex = 17;
+            this.cmbStatus.TabIndex = 4;
             // 
             // mkdDataCad
             // 
@@ -251,7 +262,7 @@
             this.txtEmail.Location = new System.Drawing.Point(184, 171);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(800, 23);
-            this.txtEmail.TabIndex = 14;
+            this.txtEmail.TabIndex = 1;
             // 
             // label2
             // 
@@ -331,7 +342,7 @@
             this.txtNomeFuncionario.Location = new System.Drawing.Point(322, 109);
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
             this.txtNomeFuncionario.Size = new System.Drawing.Size(663, 23);
-            this.txtNomeFuncionario.TabIndex = 14;
+            this.txtNomeFuncionario.TabIndex = 0;
             // 
             // lblNomeFuncionario
             // 
@@ -391,7 +402,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(322, 550);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(193, 35);
-            this.btnSalvar.TabIndex = 11;
+            this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             // 

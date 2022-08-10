@@ -82,12 +82,14 @@ namespace kibelezaPMS
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            Variaveis.funcao = "ALTERAR";
             new frmCadReserva().Show();
             Hide();
         }
 
         private void btnAgendar_Click(object sender, EventArgs e)
         {
+            Variaveis.funcao = "CADASTRAR";
             new frmCadReserva().Show();
             Hide();
         }

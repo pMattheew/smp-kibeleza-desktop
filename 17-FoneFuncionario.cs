@@ -27,5 +27,37 @@ namespace kibelezaPMS
             new frmCadFuncionario().Show();
             Close();
         }
+
+        private void cmbNomeFuncionario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                mkdTelefone.Focus();
+            }
+        }
+
+        private void mkdTelefone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                cmbOperadora.Focus();
+            }
+        }
+
+        private void cmbOperadora_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                txtDescricao.Focus();
+            }
+        }
+
+        private void txtDescricao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btnSalvar.Focus();
+            }
+        }
     }
 }

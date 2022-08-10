@@ -101,6 +101,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(222, 23);
             this.txtSenha.TabIndex = 2;
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // lblSenha
             // 
@@ -205,6 +206,7 @@
             this.cmbEmpresa.Name = "cmbEmpresa";
             this.cmbEmpresa.Size = new System.Drawing.Size(222, 21);
             this.cmbEmpresa.TabIndex = 6;
+            this.cmbEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbEmpresa_KeyPress);
             // 
             // cmbHorario
             // 
@@ -222,6 +224,7 @@
             this.cmbHorario.Name = "cmbHorario";
             this.cmbHorario.Size = new System.Drawing.Size(222, 21);
             this.cmbHorario.TabIndex = 5;
+            this.cmbHorario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbHorario_KeyPress);
             // 
             // cmbNivel
             // 
@@ -234,6 +237,7 @@
             this.cmbNivel.Name = "cmbNivel";
             this.cmbNivel.Size = new System.Drawing.Size(222, 21);
             this.cmbNivel.TabIndex = 3;
+            this.cmbNivel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbNivel_KeyPress);
             // 
             // cmbStatus
             // 
@@ -246,6 +250,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
             this.cmbStatus.TabIndex = 4;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // mkdDataCad
             // 
@@ -263,6 +268,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(800, 23);
             this.txtEmail.TabIndex = 1;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // label2
             // 
@@ -343,6 +349,7 @@
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
             this.txtNomeFuncionario.Size = new System.Drawing.Size(663, 23);
             this.txtNomeFuncionario.TabIndex = 0;
+            this.txtNomeFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeFuncionario_KeyPress);
             // 
             // lblNomeFuncionario
             // 
@@ -405,6 +412,7 @@
             this.btnSalvar.TabIndex = 7;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // lblCadFuncionario
             // 

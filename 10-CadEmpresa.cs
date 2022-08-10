@@ -26,6 +26,12 @@ namespace kibelezaPMS
         private void frmCadEmpresa_Load(object sender, EventArgs e)
         {
             pnlCadEmpresa.Location = new Point(this.Width / 2 - pnlCadEmpresa.Width / 2, this.Height / 2 - pnlCadEmpresa.Height / 2);
+
+            if (Variaveis.funcao == "ALTERAR")
+            {
+                pnlTelefone.Enabled = true;
+                lblCadEmpresa.Text = "ALTERAR EMPRESA";
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -60,14 +66,17 @@ namespace kibelezaPMS
 
         private void mkdCnpjCpf_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter && mkdCnpjCpf.MaskCompleted == true)
+            if (e.KeyChar == (char)Keys.Enter)
             {
-                txtRazao.Focus();
-            }
-            else
-            {
-                MessageBox.Show("Complete o CNPJ ou CPF");
-                mkdCnpjCpf.Focus();
+                if (mkdCnpjCpf.MaskCompleted)
+                {
+                    txtRazao.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Complete o CNPJ ou CPF");
+                    mkdCnpjCpf.Focus();
+                }
             }
 
         }

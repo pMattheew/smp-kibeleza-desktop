@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             this.pnlCadServico = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbEmpresa = new System.Windows.Forms.ComboBox();
+            this.cmbTempoExec = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnFoto4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnFoto3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnFoto2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlFoto1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFoto1 = new System.Windows.Forms.Button();
             this.lblFoto = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picSair = new System.Windows.Forms.PictureBox();
@@ -83,8 +83,8 @@
             // 
             this.pnlCadServico.BackgroundImage = global::kibelezaPMS.Properties.Resources.servico;
             this.pnlCadServico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCadServico.Controls.Add(this.comboBox2);
-            this.pnlCadServico.Controls.Add(this.comboBox1);
+            this.pnlCadServico.Controls.Add(this.cmbEmpresa);
+            this.pnlCadServico.Controls.Add(this.cmbTempoExec);
             this.pnlCadServico.Controls.Add(this.panel3);
             this.pnlCadServico.Controls.Add(this.panel2);
             this.pnlCadServico.Controls.Add(this.panel1);
@@ -114,27 +114,29 @@
             this.pnlCadServico.Size = new System.Drawing.Size(1000, 600);
             this.pnlCadServico.TabIndex = 4;
             // 
-            // comboBox2
+            // cmbEmpresa
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(568, 481);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(244, 21);
-            this.comboBox2.TabIndex = 10;
+            this.cmbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEmpresa.FormattingEnabled = true;
+            this.cmbEmpresa.Location = new System.Drawing.Point(568, 481);
+            this.cmbEmpresa.Name = "cmbEmpresa";
+            this.cmbEmpresa.Size = new System.Drawing.Size(244, 21);
+            this.cmbEmpresa.TabIndex = 10;
+            this.cmbEmpresa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbEmpresa_KeyPress);
             // 
-            // comboBox1
+            // cmbTempoExec
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(366, 481);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(96, 21);
-            this.comboBox1.TabIndex = 9;
+            this.cmbTempoExec.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTempoExec.FormattingEnabled = true;
+            this.cmbTempoExec.Location = new System.Drawing.Point(366, 481);
+            this.cmbTempoExec.Name = "cmbTempoExec";
+            this.cmbTempoExec.Size = new System.Drawing.Size(96, 21);
+            this.cmbTempoExec.TabIndex = 9;
+            this.cmbTempoExec.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbTempoExec_KeyPress);
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.button4);
+            this.panel3.Controls.Add(this.btnFoto4);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.pictureBox4);
             this.panel3.Location = new System.Drawing.Point(793, 217);
@@ -142,20 +144,21 @@
             this.panel3.Size = new System.Drawing.Size(191, 175);
             this.panel3.TabIndex = 22;
             // 
-            // button4
+            // btnFoto4
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatAppearance.BorderSize = 2;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(166, 143);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(25, 32);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "+";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnFoto4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            this.btnFoto4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFoto4.FlatAppearance.BorderSize = 2;
+            this.btnFoto4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoto4.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnFoto4.ForeColor = System.Drawing.Color.White;
+            this.btnFoto4.Location = new System.Drawing.Point(166, 143);
+            this.btnFoto4.Name = "btnFoto4";
+            this.btnFoto4.Size = new System.Drawing.Size(25, 32);
+            this.btnFoto4.TabIndex = 6;
+            this.btnFoto4.Text = "+";
+            this.btnFoto4.UseVisualStyleBackColor = false;
+            this.btnFoto4.Click += new System.EventHandler(this.btnFoto4_Click);
             // 
             // label3
             // 
@@ -181,7 +184,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button3);
+            this.panel2.Controls.Add(this.btnFoto3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Location = new System.Drawing.Point(590, 217);
@@ -189,20 +192,21 @@
             this.panel2.Size = new System.Drawing.Size(191, 175);
             this.panel2.TabIndex = 22;
             // 
-            // button3
+            // btnFoto3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(166, 143);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 32);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "+";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnFoto3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            this.btnFoto3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFoto3.FlatAppearance.BorderSize = 2;
+            this.btnFoto3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoto3.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnFoto3.ForeColor = System.Drawing.Color.White;
+            this.btnFoto3.Location = new System.Drawing.Point(166, 143);
+            this.btnFoto3.Name = "btnFoto3";
+            this.btnFoto3.Size = new System.Drawing.Size(25, 32);
+            this.btnFoto3.TabIndex = 5;
+            this.btnFoto3.Text = "+";
+            this.btnFoto3.UseVisualStyleBackColor = false;
+            this.btnFoto3.Click += new System.EventHandler(this.btnFoto3_Click);
             // 
             // label2
             // 
@@ -228,7 +232,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnFoto2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Location = new System.Drawing.Point(387, 217);
@@ -236,20 +240,21 @@
             this.panel1.Size = new System.Drawing.Size(191, 175);
             this.panel1.TabIndex = 22;
             // 
-            // button2
+            // btnFoto2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(166, 143);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(25, 32);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "+";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnFoto2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            this.btnFoto2.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFoto2.FlatAppearance.BorderSize = 2;
+            this.btnFoto2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoto2.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnFoto2.ForeColor = System.Drawing.Color.White;
+            this.btnFoto2.Location = new System.Drawing.Point(166, 143);
+            this.btnFoto2.Name = "btnFoto2";
+            this.btnFoto2.Size = new System.Drawing.Size(25, 32);
+            this.btnFoto2.TabIndex = 4;
+            this.btnFoto2.Text = "+";
+            this.btnFoto2.UseVisualStyleBackColor = false;
+            this.btnFoto2.Click += new System.EventHandler(this.btnFoto2_Click);
             // 
             // label1
             // 
@@ -275,7 +280,7 @@
             // 
             // pnlFoto1
             // 
-            this.pnlFoto1.Controls.Add(this.button1);
+            this.pnlFoto1.Controls.Add(this.btnFoto1);
             this.pnlFoto1.Controls.Add(this.lblFoto);
             this.pnlFoto1.Controls.Add(this.pictureBox1);
             this.pnlFoto1.Location = new System.Drawing.Point(184, 217);
@@ -283,20 +288,21 @@
             this.pnlFoto1.Size = new System.Drawing.Size(191, 175);
             this.pnlFoto1.TabIndex = 22;
             // 
-            // button1
+            // btnFoto1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(166, 143);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFoto1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            this.btnFoto1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFoto1.FlatAppearance.BorderSize = 2;
+            this.btnFoto1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoto1.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnFoto1.ForeColor = System.Drawing.Color.White;
+            this.btnFoto1.Location = new System.Drawing.Point(166, 143);
+            this.btnFoto1.Name = "btnFoto1";
+            this.btnFoto1.Size = new System.Drawing.Size(25, 32);
+            this.btnFoto1.TabIndex = 3;
+            this.btnFoto1.Text = "+";
+            this.btnFoto1.UseVisualStyleBackColor = false;
+            this.btnFoto1.Click += new System.EventHandler(this.btnFoto1_Click);
             // 
             // lblFoto
             // 
@@ -344,6 +350,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
             this.cmbStatus.TabIndex = 2;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // mkdDataCad
             // 
@@ -385,6 +392,7 @@
             this.txtTexto.Name = "txtTexto";
             this.txtTexto.Size = new System.Drawing.Size(663, 23);
             this.txtTexto.TabIndex = 8;
+            this.txtTexto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTexto_KeyPress);
             // 
             // txtDescricao
             // 
@@ -393,6 +401,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(663, 23);
             this.txtDescricao.TabIndex = 7;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
             // 
             // lblTempo
             // 
@@ -449,6 +458,7 @@
             this.txtNomeServico.Name = "txtNomeServico";
             this.txtNomeServico.Size = new System.Drawing.Size(663, 23);
             this.txtNomeServico.TabIndex = 0;
+            this.txtNomeServico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeServico_KeyPress);
             // 
             // lblNomeServico
             // 
@@ -469,6 +479,7 @@
             this.txtValor.Name = "txtValor";
             this.txtValor.Size = new System.Drawing.Size(161, 23);
             this.txtValor.TabIndex = 1;
+            this.txtValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
             // 
             // lblValor
             // 
@@ -579,7 +590,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlCadServico;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFoto1;
         private System.Windows.Forms.Label lblFoto;
         private System.Windows.Forms.PictureBox picSair;
         private System.Windows.Forms.ComboBox cmbStatus;
@@ -597,15 +608,15 @@
         private System.Windows.Forms.Label lblCadServico;
         private System.Windows.Forms.Panel pnlFoto1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnFoto4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnFoto3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnFoto2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -614,8 +625,8 @@
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.TextBox txtTexto;
         private System.Windows.Forms.Label lblTempo;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbTempoExec;
+        private System.Windows.Forms.ComboBox cmbEmpresa;
         private System.Windows.Forms.Label lblEmpresa;
     }
 }

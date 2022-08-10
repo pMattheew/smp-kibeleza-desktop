@@ -31,12 +31,14 @@ namespace kibelezaPMS
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            Variaveis.funcao = "CADASTRAR";
             new frmCadServico().Show(); 
             Hide();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            Variaveis.funcao = "ALTERAR";
             new frmCadServico().Show();
             Hide();
         }

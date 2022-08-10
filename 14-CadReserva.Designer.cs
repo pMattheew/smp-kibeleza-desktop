@@ -35,7 +35,7 @@
             this.cmbServico = new System.Windows.Forms.ComboBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.cmbReserva = new System.Windows.Forms.ComboBox();
+            this.cmbHorario = new System.Windows.Forms.ComboBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.txtObservacao = new System.Windows.Forms.TextBox();
             this.lblServico = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.pnlCadReserva.Controls.Add(this.cmbServico);
             this.pnlCadReserva.Controls.Add(this.cmbCliente);
             this.pnlCadReserva.Controls.Add(this.cmbFuncionario);
-            this.pnlCadReserva.Controls.Add(this.cmbReserva);
+            this.pnlCadReserva.Controls.Add(this.cmbHorario);
             this.pnlCadReserva.Controls.Add(this.cmbStatus);
             this.pnlCadReserva.Controls.Add(this.txtObservacao);
             this.pnlCadReserva.Controls.Add(this.lblServico);
@@ -91,6 +91,7 @@
             this.calReserva.Location = new System.Drawing.Point(184, 234);
             this.calReserva.Name = "calReserva";
             this.calReserva.TabIndex = 2;
+            this.calReserva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.calReserva_KeyPress);
             // 
             // lblSenha
             // 
@@ -125,6 +126,7 @@
             this.cmbServico.Name = "cmbServico";
             this.cmbServico.Size = new System.Drawing.Size(510, 21);
             this.cmbServico.TabIndex = 7;
+            this.cmbServico.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbServico_KeyPress);
             // 
             // cmbCliente
             // 
@@ -134,6 +136,7 @@
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(510, 21);
             this.cmbCliente.TabIndex = 6;
+            this.cmbCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbCliente_KeyPress);
             // 
             // cmbFuncionario
             // 
@@ -143,12 +146,13 @@
             this.cmbFuncionario.Name = "cmbFuncionario";
             this.cmbFuncionario.Size = new System.Drawing.Size(510, 21);
             this.cmbFuncionario.TabIndex = 5;
+            this.cmbFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbFuncionario_KeyPress);
             // 
-            // cmbReserva
+            // cmbHorario
             // 
-            this.cmbReserva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbReserva.FormattingEnabled = true;
-            this.cmbReserva.Items.AddRange(new object[] {
+            this.cmbHorario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHorario.FormattingEnabled = true;
+            this.cmbHorario.Items.AddRange(new object[] {
             "6:00",
             "6:30",
             "7:00",
@@ -181,10 +185,11 @@
             "20:30",
             "21:00",
             "21:30"});
-            this.cmbReserva.Location = new System.Drawing.Point(472, 234);
-            this.cmbReserva.Name = "cmbReserva";
-            this.cmbReserva.Size = new System.Drawing.Size(222, 21);
-            this.cmbReserva.TabIndex = 3;
+            this.cmbHorario.Location = new System.Drawing.Point(472, 234);
+            this.cmbHorario.Name = "cmbHorario";
+            this.cmbHorario.Size = new System.Drawing.Size(222, 21);
+            this.cmbHorario.TabIndex = 3;
+            this.cmbHorario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbHorario_KeyPress);
             // 
             // cmbStatus
             // 
@@ -197,6 +202,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
             this.cmbStatus.TabIndex = 4;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // txtObservacao
             // 
@@ -205,6 +211,7 @@
             this.txtObservacao.Name = "txtObservacao";
             this.txtObservacao.Size = new System.Drawing.Size(800, 23);
             this.txtObservacao.TabIndex = 1;
+            this.txtObservacao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtObservacao_KeyPress);
             // 
             // lblServico
             // 
@@ -285,6 +292,7 @@
             this.txtNomeFuncionario.Name = "txtNomeFuncionario";
             this.txtNomeFuncionario.Size = new System.Drawing.Size(663, 23);
             this.txtNomeFuncionario.TabIndex = 0;
+            this.txtNomeFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeFuncionario_KeyPress);
             // 
             // lblNomeFuncionario
             // 
@@ -393,7 +401,7 @@
         private System.Windows.Forms.ComboBox cmbServico;
         private System.Windows.Forms.ComboBox cmbCliente;
         private System.Windows.Forms.ComboBox cmbFuncionario;
-        private System.Windows.Forms.ComboBox cmbReserva;
+        private System.Windows.Forms.ComboBox cmbHorario;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.TextBox txtObservacao;
         private System.Windows.Forms.Label lblServico;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlCadCliente = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFoto = new System.Windows.Forms.Button();
             this.lblFoto = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlTelefone = new System.Windows.Forms.Panel();
@@ -40,9 +40,6 @@
             this.picSair = new System.Windows.Forms.PictureBox();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
-            this.mkdCnpjCpf = new System.Windows.Forms.MaskedTextBox();
-            this.radCpf = new System.Windows.Forms.RadioButton();
-            this.radCnpj = new System.Windows.Forms.RadioButton();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblDataCad = new System.Windows.Forms.Label();
@@ -67,16 +64,13 @@
             // 
             this.pnlCadCliente.BackgroundImage = global::kibelezaPMS.Properties.Resources.cliente;
             this.pnlCadCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCadCliente.Controls.Add(this.button1);
+            this.pnlCadCliente.Controls.Add(this.btnFoto);
             this.pnlCadCliente.Controls.Add(this.lblFoto);
             this.pnlCadCliente.Controls.Add(this.pictureBox1);
             this.pnlCadCliente.Controls.Add(this.pnlTelefone);
             this.pnlCadCliente.Controls.Add(this.picSair);
             this.pnlCadCliente.Controls.Add(this.cmbStatus);
             this.pnlCadCliente.Controls.Add(this.mkdDataCad);
-            this.pnlCadCliente.Controls.Add(this.mkdCnpjCpf);
-            this.pnlCadCliente.Controls.Add(this.radCpf);
-            this.pnlCadCliente.Controls.Add(this.radCnpj);
             this.pnlCadCliente.Controls.Add(this.txtEmail);
             this.pnlCadCliente.Controls.Add(this.txtSenha);
             this.pnlCadCliente.Controls.Add(this.lblDataCad);
@@ -95,20 +89,21 @@
             this.pnlCadCliente.Size = new System.Drawing.Size(1000, 600);
             this.pnlCadCliente.TabIndex = 3;
             // 
-            // button1
+            // btnFoto
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(959, 502);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(25, 32);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnFoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            this.btnFoto.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnFoto.FlatAppearance.BorderSize = 2;
+            this.btnFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFoto.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnFoto.ForeColor = System.Drawing.Color.White;
+            this.btnFoto.Location = new System.Drawing.Point(959, 502);
+            this.btnFoto.Name = "btnFoto";
+            this.btnFoto.Size = new System.Drawing.Size(25, 32);
+            this.btnFoto.TabIndex = 7;
+            this.btnFoto.Text = "+";
+            this.btnFoto.UseVisualStyleBackColor = false;
+            this.btnFoto.Click += new System.EventHandler(this.btnFoto_Click);
             // 
             // lblFoto
             // 
@@ -226,6 +221,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
             this.cmbStatus.TabIndex = 6;
+            this.cmbStatus.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbStatus_KeyPress);
             // 
             // mkdDataCad
             // 
@@ -235,50 +231,17 @@
             this.mkdDataCad.Name = "mkdDataCad";
             this.mkdDataCad.Size = new System.Drawing.Size(162, 23);
             this.mkdDataCad.TabIndex = 16;
-            // 
-            // mkdCnpjCpf
-            // 
-            this.mkdCnpjCpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mkdCnpjCpf.Location = new System.Drawing.Point(184, 168);
-            this.mkdCnpjCpf.Mask = "00,000,000/0000-00";
-            this.mkdCnpjCpf.Name = "mkdCnpjCpf";
-            this.mkdCnpjCpf.Size = new System.Drawing.Size(161, 23);
-            this.mkdCnpjCpf.TabIndex = 3;
-            // 
-            // radCpf
-            // 
-            this.radCpf.AutoSize = true;
-            this.radCpf.BackColor = System.Drawing.Color.Transparent;
-            this.radCpf.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.radCpf.Location = new System.Drawing.Point(259, 141);
-            this.radCpf.Name = "radCpf";
-            this.radCpf.Size = new System.Drawing.Size(59, 25);
-            this.radCpf.TabIndex = 2;
-            this.radCpf.TabStop = true;
-            this.radCpf.Text = "CPF";
-            this.radCpf.UseVisualStyleBackColor = false;
-            // 
-            // radCnpj
-            // 
-            this.radCnpj.AutoSize = true;
-            this.radCnpj.BackColor = System.Drawing.Color.Transparent;
-            this.radCnpj.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.radCnpj.Location = new System.Drawing.Point(184, 141);
-            this.radCnpj.Name = "radCnpj";
-            this.radCnpj.Size = new System.Drawing.Size(69, 25);
-            this.radCnpj.TabIndex = 1;
-            this.radCnpj.TabStop = true;
-            this.radCnpj.Text = "CNPJ";
-            this.radCnpj.UseVisualStyleBackColor = false;
+            this.mkdDataCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEmail
             // 
             this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtEmail.Location = new System.Drawing.Point(391, 168);
+            this.txtEmail.Location = new System.Drawing.Point(184, 168);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(593, 23);
+            this.txtEmail.Size = new System.Drawing.Size(800, 23);
             this.txtEmail.TabIndex = 4;
+            this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
             // txtSenha
             // 
@@ -287,6 +250,7 @@
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(161, 23);
             this.txtSenha.TabIndex = 5;
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // lblDataCad
             // 
@@ -317,7 +281,7 @@
             this.lblEmail.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblEmail.Location = new System.Drawing.Point(387, 143);
+            this.lblEmail.Location = new System.Drawing.Point(184, 143);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(165, 22);
             this.lblEmail.TabIndex = 13;
@@ -331,6 +295,7 @@
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.Size = new System.Drawing.Size(663, 23);
             this.txtNomeCliente.TabIndex = 0;
+            this.txtNomeCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeCliente_KeyPress);
             // 
             // lblSenha
             // 
@@ -405,6 +370,8 @@
             this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnSalvar_KeyPress);
             // 
             // lblCadCliente
             // 
@@ -448,7 +415,7 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlCadCliente;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFoto;
         private System.Windows.Forms.Label lblFoto;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlTelefone;
@@ -459,9 +426,6 @@
         private System.Windows.Forms.PictureBox picSair;
         private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.MaskedTextBox mkdDataCad;
-        private System.Windows.Forms.MaskedTextBox mkdCnpjCpf;
-        private System.Windows.Forms.RadioButton radCpf;
-        private System.Windows.Forms.RadioButton radCnpj;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblDataCad;

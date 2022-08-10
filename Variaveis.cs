@@ -8,6 +8,9 @@ namespace kibelezaPMS
 {
     public static class Variaveis
     {
+        // geral
+        public static string funcao;
+
         // login 
         public static string usuario, senha, nivel;
     }

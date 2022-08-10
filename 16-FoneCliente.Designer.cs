@@ -75,6 +75,7 @@
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(305, 23);
             this.txtDescricao.TabIndex = 4;
+            this.txtDescricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescricao_KeyPress);
             // 
             // label1
             // 
@@ -102,6 +103,7 @@
             this.cmbOperadora.Name = "cmbOperadora";
             this.cmbOperadora.Size = new System.Drawing.Size(305, 21);
             this.cmbOperadora.TabIndex = 3;
+            this.cmbOperadora.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbOperadora_KeyPress);
             // 
             // lblOperadora
             // 
@@ -123,6 +125,7 @@
             this.mkdTelefone.Name = "mkdTelefone";
             this.mkdTelefone.Size = new System.Drawing.Size(305, 23);
             this.mkdTelefone.TabIndex = 2;
+            this.mkdTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mkdTelefone_KeyPress);
             // 
             // lblTelefone
             // 
@@ -144,6 +147,7 @@
             this.cmbNomeCliente.Name = "cmbNomeCliente";
             this.cmbNomeCliente.Size = new System.Drawing.Size(305, 21);
             this.cmbNomeCliente.TabIndex = 1;
+            this.cmbNomeCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbNomeCliente_KeyPress);
             // 
             // lblNomeCliente
             // 

@@ -30,7 +30,7 @@
         {
             this.pnlCadReserva = new System.Windows.Forms.Panel();
             this.calReserva = new System.Windows.Forms.MonthCalendar();
-            this.lblSenha = new System.Windows.Forms.Label();
+            this.lblDataReserva = new System.Windows.Forms.Label();
             this.picSair = new System.Windows.Forms.PictureBox();
             this.cmbServico = new System.Windows.Forms.ComboBox();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
@@ -41,11 +41,9 @@
             this.lblServico = new System.Windows.Forms.Label();
             this.lblCliente = new System.Windows.Forms.Label();
             this.lblFuncionario = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblHorario = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblObservacao = new System.Windows.Forms.Label();
-            this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
-            this.lblNomeFuncionario = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
             this.btnLimpar = new System.Windows.Forms.Button();
@@ -60,7 +58,7 @@
             this.pnlCadReserva.BackgroundImage = global::kibelezaPMS.Properties.Resources.reserva;
             this.pnlCadReserva.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlCadReserva.Controls.Add(this.calReserva);
-            this.pnlCadReserva.Controls.Add(this.lblSenha);
+            this.pnlCadReserva.Controls.Add(this.lblDataReserva);
             this.pnlCadReserva.Controls.Add(this.picSair);
             this.pnlCadReserva.Controls.Add(this.cmbServico);
             this.pnlCadReserva.Controls.Add(this.cmbCliente);
@@ -71,11 +69,9 @@
             this.pnlCadReserva.Controls.Add(this.lblServico);
             this.pnlCadReserva.Controls.Add(this.lblCliente);
             this.pnlCadReserva.Controls.Add(this.lblFuncionario);
-            this.pnlCadReserva.Controls.Add(this.label1);
+            this.pnlCadReserva.Controls.Add(this.lblHorario);
             this.pnlCadReserva.Controls.Add(this.lblStatus);
             this.pnlCadReserva.Controls.Add(this.lblObservacao);
-            this.pnlCadReserva.Controls.Add(this.txtNomeFuncionario);
-            this.pnlCadReserva.Controls.Add(this.lblNomeFuncionario);
             this.pnlCadReserva.Controls.Add(this.txtCodigo);
             this.pnlCadReserva.Controls.Add(this.lblCodigo);
             this.pnlCadReserva.Controls.Add(this.btnLimpar);
@@ -93,17 +89,17 @@
             this.calReserva.TabIndex = 2;
             this.calReserva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.calReserva_KeyPress);
             // 
-            // lblSenha
+            // lblDataReserva
             // 
-            this.lblSenha.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblSenha.BackColor = System.Drawing.Color.Transparent;
-            this.lblSenha.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblSenha.Location = new System.Drawing.Point(180, 209);
-            this.lblSenha.Name = "lblSenha";
-            this.lblSenha.Size = new System.Drawing.Size(165, 22);
-            this.lblSenha.TabIndex = 20;
-            this.lblSenha.Text = "Data da reserva:";
-            this.lblSenha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblDataReserva.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblDataReserva.BackColor = System.Drawing.Color.Transparent;
+            this.lblDataReserva.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblDataReserva.Location = new System.Drawing.Point(180, 209);
+            this.lblDataReserva.Name = "lblDataReserva";
+            this.lblDataReserva.Size = new System.Drawing.Size(165, 22);
+            this.lblDataReserva.TabIndex = 20;
+            this.lblDataReserva.Text = "Data da reserva:";
+            this.lblDataReserva.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // picSair
             // 
@@ -249,17 +245,17 @@
             this.lblFuncionario.Text = "Funcionário:";
             this.lblFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblHorario
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.label1.Location = new System.Drawing.Point(472, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 22);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Horário da reserva:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblHorario.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblHorario.BackColor = System.Drawing.Color.Transparent;
+            this.lblHorario.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblHorario.Location = new System.Drawing.Point(472, 209);
+            this.lblHorario.Name = "lblHorario";
+            this.lblHorario.Size = new System.Drawing.Size(178, 22);
+            this.lblHorario.TabIndex = 13;
+            this.lblHorario.Text = "Horário da reserva:";
+            this.lblHorario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblStatus
             // 
@@ -284,27 +280,6 @@
             this.lblObservacao.TabIndex = 13;
             this.lblObservacao.Text = "Obs.:";
             this.lblObservacao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtNomeFuncionario
-            // 
-            this.txtNomeFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.txtNomeFuncionario.Location = new System.Drawing.Point(322, 109);
-            this.txtNomeFuncionario.Name = "txtNomeFuncionario";
-            this.txtNomeFuncionario.Size = new System.Drawing.Size(663, 23);
-            this.txtNomeFuncionario.TabIndex = 0;
-            this.txtNomeFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNomeFuncionario_KeyPress);
-            // 
-            // lblNomeFuncionario
-            // 
-            this.lblNomeFuncionario.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblNomeFuncionario.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomeFuncionario.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.lblNomeFuncionario.Location = new System.Drawing.Point(318, 84);
-            this.lblNomeFuncionario.Name = "lblNomeFuncionario";
-            this.lblNomeFuncionario.Size = new System.Drawing.Size(197, 22);
-            this.lblNomeFuncionario.TabIndex = 13;
-            this.lblNomeFuncionario.Text = "Nome do Funcionário:";
-            this.lblNomeFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtCodigo
             // 
@@ -340,6 +315,7 @@
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -355,6 +331,7 @@
             this.btnSalvar.TabIndex = 8;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // lblCadReserva
             // 
@@ -396,7 +373,7 @@
 
         private System.Windows.Forms.Panel pnlCadReserva;
         private System.Windows.Forms.MonthCalendar calReserva;
-        private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.Label lblDataReserva;
         private System.Windows.Forms.PictureBox picSair;
         private System.Windows.Forms.ComboBox cmbServico;
         private System.Windows.Forms.ComboBox cmbCliente;
@@ -407,11 +384,9 @@
         private System.Windows.Forms.Label lblServico;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label lblFuncionario;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblHorario;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblObservacao;
-        private System.Windows.Forms.TextBox txtNomeFuncionario;
-        private System.Windows.Forms.Label lblNomeFuncionario;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
         private System.Windows.Forms.Button btnLimpar;

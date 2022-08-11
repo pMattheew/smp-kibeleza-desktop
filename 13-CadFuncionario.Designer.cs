@@ -43,10 +43,10 @@
             this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblEmpresa = new System.Windows.Forms.Label();
             this.lblHorario = new System.Windows.Forms.Label();
             this.lblDataCad = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNivel = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
@@ -76,10 +76,10 @@
             this.pnlCadFuncionario.Controls.Add(this.cmbStatus);
             this.pnlCadFuncionario.Controls.Add(this.mkdDataCad);
             this.pnlCadFuncionario.Controls.Add(this.txtEmail);
-            this.pnlCadFuncionario.Controls.Add(this.label2);
+            this.pnlCadFuncionario.Controls.Add(this.lblEmpresa);
             this.pnlCadFuncionario.Controls.Add(this.lblHorario);
             this.pnlCadFuncionario.Controls.Add(this.lblDataCad);
-            this.pnlCadFuncionario.Controls.Add(this.label1);
+            this.pnlCadFuncionario.Controls.Add(this.lblNivel);
             this.pnlCadFuncionario.Controls.Add(this.lblStatus);
             this.pnlCadFuncionario.Controls.Add(this.lblEmail);
             this.pnlCadFuncionario.Controls.Add(this.txtNomeFuncionario);
@@ -270,17 +270,17 @@
             this.txtEmail.TabIndex = 1;
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtEmail_KeyPress);
             // 
-            // label2
+            // lblEmpresa
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.label2.Location = new System.Drawing.Point(759, 422);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(226, 22);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Empresa:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEmpresa.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblEmpresa.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmpresa.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblEmpresa.Location = new System.Drawing.Point(759, 422);
+            this.lblEmpresa.Name = "lblEmpresa";
+            this.lblEmpresa.Size = new System.Drawing.Size(226, 22);
+            this.lblEmpresa.TabIndex = 13;
+            this.lblEmpresa.Text = "Empresa:";
+            this.lblEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHorario
             // 
@@ -306,17 +306,17 @@
             this.lblDataCad.Text = "Data de cadastro:";
             this.lblDataCad.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label1
+            // lblNivel
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.label1.Location = new System.Drawing.Point(472, 209);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 22);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Nível:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblNivel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNivel.BackColor = System.Drawing.Color.Transparent;
+            this.lblNivel.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.lblNivel.Location = new System.Drawing.Point(472, 209);
+            this.lblNivel.Name = "lblNivel";
+            this.lblNivel.Size = new System.Drawing.Size(165, 22);
+            this.lblNivel.TabIndex = 13;
+            this.lblNivel.Text = "Nível:";
+            this.lblNivel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblStatus
             // 
@@ -397,6 +397,7 @@
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -479,8 +480,8 @@
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.ComboBox cmbNivel;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNivel;
         private System.Windows.Forms.ComboBox cmbEmpresa;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblEmpresa;
     }
 }

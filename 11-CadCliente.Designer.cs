@@ -31,7 +31,7 @@
             this.pnlCadCliente = new System.Windows.Forms.Panel();
             this.btnFoto = new System.Windows.Forms.Button();
             this.lblFoto = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picFoto = new System.Windows.Forms.PictureBox();
             this.pnlTelefone = new System.Windows.Forms.Panel();
             this.dgvFoneCliente = new System.Windows.Forms.DataGridView();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblCadCliente = new System.Windows.Forms.Label();
             this.pnlCadCliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.pnlTelefone.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoneCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
@@ -66,7 +66,7 @@
             this.pnlCadCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlCadCliente.Controls.Add(this.btnFoto);
             this.pnlCadCliente.Controls.Add(this.lblFoto);
-            this.pnlCadCliente.Controls.Add(this.pictureBox1);
+            this.pnlCadCliente.Controls.Add(this.picFoto);
             this.pnlCadCliente.Controls.Add(this.pnlTelefone);
             this.pnlCadCliente.Controls.Add(this.picSair);
             this.pnlCadCliente.Controls.Add(this.cmbStatus);
@@ -117,15 +117,15 @@
             this.lblFoto.Text = "FOTO";
             this.lblFoto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // picFoto
             // 
-            this.pictureBox1.Image = global::kibelezaPMS.Properties.Resources.semimagem;
-            this.pictureBox1.Location = new System.Drawing.Point(784, 334);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.picFoto.Image = global::kibelezaPMS.Properties.Resources.semimagem;
+            this.picFoto.Location = new System.Drawing.Point(784, 334);
+            this.picFoto.Name = "picFoto";
+            this.picFoto.Size = new System.Drawing.Size(200, 200);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picFoto.TabIndex = 20;
+            this.picFoto.TabStop = false;
             // 
             // pnlTelefone
             // 
@@ -355,6 +355,7 @@
             this.btnLimpar.TabIndex = 11;
             this.btnLimpar.Text = "LIMPAR";
             this.btnLimpar.UseVisualStyleBackColor = false;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
             // btnSalvar
             // 
@@ -404,7 +405,7 @@
             this.Load += new System.EventHandler(this.frmCadCliente_Load);
             this.pnlCadCliente.ResumeLayout(false);
             this.pnlCadCliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.pnlTelefone.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFoneCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).EndInit();
@@ -417,7 +418,7 @@
         private System.Windows.Forms.Panel pnlCadCliente;
         private System.Windows.Forms.Button btnFoto;
         private System.Windows.Forms.Label lblFoto;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picFoto;
         private System.Windows.Forms.Panel pnlTelefone;
         private System.Windows.Forms.DataGridView dgvFoneCliente;
         private System.Windows.Forms.Button btnCadastrar;

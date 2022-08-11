@@ -108,5 +108,19 @@ namespace kibelezaPMS
                 btnSalvar.Focus();
             }
         }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            txtNomeServico.Clear();
+            txtValor.Clear();
+            cmbStatus.SelectedIndex = -1;
+            mkdDataCad.Clear();
+            txtDescricao.Clear();
+            txtTexto.Clear();
+            cmbTempoExec.SelectedIndex = -1;
+            cmbEmpresa.SelectedIndex = -1;
+
+            txtNomeServico.Focus();
+        }
     }
 }

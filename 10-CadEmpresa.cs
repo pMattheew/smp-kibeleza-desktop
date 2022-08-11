@@ -106,7 +106,94 @@ namespace kibelezaPMS
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            pnlTelefone.Enabled = true;
+            lblNomeEmpresa.ForeColor = Color.FromArgb(70, 10, 45);
+            radCnpj.ForeColor = Color.FromArgb(70, 10, 45);
+            radCpf.ForeColor = Color.FromArgb(70, 10, 45);
+            lblRazao.ForeColor = Color.FromArgb(70, 10, 45);
+            lblEmail.ForeColor = Color.FromArgb(70, 10, 45);
+            lblStatus.ForeColor = Color.FromArgb(70, 10, 45);
+            lblHorario.ForeColor = Color.FromArgb(70, 10, 45);
+
+            if (txtNomeEmpresa.Text == String.Empty)
+            {
+                lblNomeEmpresa.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha o nome da empresa.");
+                txtNomeEmpresa.Focus();
+            }
+            else if (!mkdCnpjCpf.MaskCompleted)
+            {
+                radCnpj.ForeColor = Color.Red;
+                radCpf.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha o CNPJ ou CPF.");
+                mkdCnpjCpf.Focus();
+            }
+            else if (txtRazao.Text == String.Empty)
+            {
+                lblRazao.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha a razão social.");
+                txtRazao.Focus();
+            }
+            else if (txtEmail.Text == String.Empty)
+            {
+                lblEmail.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha o email.");
+                txtEmail.Focus();
+            }
+            else if (cmbStatus.Text == String.Empty)
+            {
+                lblStatus.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha o status.");
+                cmbStatus.Focus();
+            }
+            else if (mkdDataCad.Text == String.Empty)
+            {
+                lblDataCad.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha a data de cadastro.");
+                mkdDataCad.Focus();
+            }
+            else if (cmbHorario.Text == String.Empty)
+            {
+                lblHorario.ForeColor = Color.Red;
+                MessageBox.Show("Por favor, preencha o horário de atendimento.");
+                cmbHorario.Focus();
+            }
+            else
+            {
+                Variaveis.nomeEmpresa = txtNomeEmpresa.Text;
+                Variaveis.cnpjCpf = mkdCnpjCpf.Text;
+                Variaveis.razaoSocial = txtRazao.Text;
+                Variaveis.emailEmpresa = txtEmail.Text;
+                Variaveis.statusEmpresa = cmbStatus.Text;
+                mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
+                Variaveis.horarioAtendEmpresa = DateTime.Parse(cmbHorario.Text);
+
+                pnlTelefone.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnLimpar.Enabled = false;
+            }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+
+            lblNomeEmpresa.ForeColor = Color.FromArgb(70, 10, 45);
+            radCnpj.ForeColor = Color.FromArgb(70, 10, 45);
+            radCpf.ForeColor = Color.FromArgb(70, 10, 45);
+            lblRazao.ForeColor = Color.FromArgb(70, 10, 45);
+            lblEmail.ForeColor = Color.FromArgb(70, 10, 45);
+            lblStatus.ForeColor = Color.FromArgb(70, 10, 45);
+            lblHorario.ForeColor = Color.FromArgb(70, 10, 45);
+
+            txtNomeEmpresa.Clear();
+            mkdCnpjCpf.Clear();
+            txtRazao.Clear();
+            txtEmail.Clear();
+            cmbStatus.SelectedIndex = -1;
+            mkdDataCad.Clear();
+            cmbHorario.SelectedIndex = -1;
+
+            txtNomeEmpresa.Focus();
         }
     }
 }

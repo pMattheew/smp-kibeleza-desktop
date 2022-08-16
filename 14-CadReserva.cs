@@ -177,7 +177,6 @@ namespace kibelezaPMS
                 Variaveis.clienteReserva = cmbCliente.Text;
                 Variaveis.servicoReserva = cmbServico.Text;
 
-                pnlTelefone.Enabled = true;
                 btnSalvar.Enabled = false;
                 btnLimpar.Enabled = false;
             }

@@ -28,5 +28,9 @@ namespace kibelezaPMS
         public static int codFuncionario;
         public static string nomeFuncionario, emailFuncionario, senhaFuncionario, statusFuncionario, nivelFuncionario, empresaFuncionario;
         public static DateTime dataCadFuncionario, horarioAtendFuncionario;
+
+        // reserva
+        public static string obsReserva, statusReserva, funcionarioReserva, clienteReserva, servicoReserva;
+        public static DateTime horarioReserva;
     }
 }

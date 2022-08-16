@@ -32,5 +32,8 @@ namespace kibelezaPMS
         // reserva
         public static string obsReserva, statusReserva, funcionarioReserva, clienteReserva, servicoReserva;
         public static DateTime horarioReserva;
+
+        // reserva
+        public static string nomeServico;
     }
 }

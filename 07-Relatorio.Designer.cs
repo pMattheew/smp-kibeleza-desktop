@@ -28,27 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlRelatorio = new System.Windows.Forms.Panel();
+            this.btnEntrar = new System.Windows.Forms.Button();
             this.dgvRelatorio = new System.Windows.Forms.DataGridView();
+            this.picAtualizar = new System.Windows.Forms.PictureBox();
+            this.picSair = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radTelefone = new System.Windows.Forms.RadioButton();
+            this.radInativo = new System.Windows.Forms.RadioButton();
+            this.radAtivo = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radFuncionario = new System.Windows.Forms.RadioButton();
             this.radEmpresa = new System.Windows.Forms.RadioButton();
             this.radCliente = new System.Windows.Forms.RadioButton();
             this.lblNome = new System.Windows.Forms.Label();
-            this.picSair = new System.Windows.Forms.PictureBox();
-            this.btnEntrar = new System.Windows.Forms.Button();
-            this.picAtualizar = new System.Windows.Forms.PictureBox();
             this.pnlRelatorio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAtualizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAtualizar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRelatorio
@@ -66,65 +68,132 @@
             this.pnlRelatorio.Size = new System.Drawing.Size(1000, 600);
             this.pnlRelatorio.TabIndex = 3;
             // 
+            // btnEntrar
+            // 
+            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            this.btnEntrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnEntrar.FlatAppearance.BorderSize = 2;
+            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEntrar.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            this.btnEntrar.ForeColor = System.Drawing.Color.White;
+            this.btnEntrar.Location = new System.Drawing.Point(859, 58);
+            this.btnEntrar.Name = "btnEntrar";
+            this.btnEntrar.Size = new System.Drawing.Size(126, 33);
+            this.btnEntrar.TabIndex = 7;
+            this.btnEntrar.Text = "SALVAR";
+            this.btnEntrar.UseVisualStyleBackColor = false;
+            // 
             // dgvRelatorio
             // 
+            this.dgvRelatorio.AllowUserToAddRows = false;
+            this.dgvRelatorio.AllowUserToDeleteRows = false;
+            this.dgvRelatorio.AllowUserToResizeColumns = false;
+            this.dgvRelatorio.AllowUserToResizeRows = false;
+            this.dgvRelatorio.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvRelatorio.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvRelatorio.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvRelatorio.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRelatorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Britannic Bold", 11F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvRelatorio.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvRelatorio.EnableHeadersVisualStyles = false;
             this.dgvRelatorio.Location = new System.Drawing.Point(187, 109);
+            this.dgvRelatorio.MultiSelect = false;
             this.dgvRelatorio.Name = "dgvRelatorio";
+            this.dgvRelatorio.ReadOnly = true;
+            this.dgvRelatorio.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRelatorio.Size = new System.Drawing.Size(798, 474);
             this.dgvRelatorio.TabIndex = 6;
+            // 
+            // picAtualizar
+            // 
+            this.picAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picAtualizar.BackColor = System.Drawing.Color.Transparent;
+            this.picAtualizar.Image = global::kibelezaPMS.Properties.Resources.refresh;
+            this.picAtualizar.Location = new System.Drawing.Point(913, 21);
+            this.picAtualizar.Name = "picAtualizar";
+            this.picAtualizar.Size = new System.Drawing.Size(33, 31);
+            this.picAtualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picAtualizar.TabIndex = 4;
+            this.picAtualizar.TabStop = false;
+            this.picAtualizar.Click += new System.EventHandler(this.picAtualizar_Click);
+            // 
+            // picSair
+            // 
+            this.picSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picSair.BackColor = System.Drawing.Color.Transparent;
+            this.picSair.Image = global::kibelezaPMS.Properties.Resources.fechar;
+            this.picSair.Location = new System.Drawing.Point(952, 21);
+            this.picSair.Name = "picSair";
+            this.picSair.Size = new System.Drawing.Size(33, 31);
+            this.picSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSair.TabIndex = 4;
+            this.picSair.TabStop = false;
+            this.picSair.Click += new System.EventHandler(this.picSair_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.panel2.Controls.Add(this.radioButton1);
-            this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Controls.Add(this.radioButton3);
+            this.panel2.Controls.Add(this.radTelefone);
+            this.panel2.Controls.Add(this.radInativo);
+            this.panel2.Controls.Add(this.radAtivo);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(539, 21);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(314, 70);
             this.panel2.TabIndex = 5;
             // 
-            // radioButton1
+            // radTelefone
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Britannic Bold", 12F);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(203, 37);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(97, 21);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "TELEFONE";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radTelefone.AutoSize = true;
+            this.radTelefone.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            this.radTelefone.ForeColor = System.Drawing.Color.White;
+            this.radTelefone.Location = new System.Drawing.Point(203, 37);
+            this.radTelefone.Name = "radTelefone";
+            this.radTelefone.Size = new System.Drawing.Size(97, 21);
+            this.radTelefone.TabIndex = 10;
+            this.radTelefone.TabStop = true;
+            this.radTelefone.Text = "TELEFONE";
+            this.radTelefone.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radInativo
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Britannic Bold", 12F);
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(103, 37);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(82, 21);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "INATIVO";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radInativo.AutoSize = true;
+            this.radInativo.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            this.radInativo.ForeColor = System.Drawing.Color.White;
+            this.radInativo.Location = new System.Drawing.Point(103, 37);
+            this.radInativo.Name = "radInativo";
+            this.radInativo.Size = new System.Drawing.Size(82, 21);
+            this.radInativo.TabIndex = 10;
+            this.radInativo.TabStop = true;
+            this.radInativo.Text = "INATIVO";
+            this.radInativo.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radAtivo
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Britannic Bold", 12F);
-            this.radioButton3.ForeColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(18, 37);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(67, 21);
-            this.radioButton3.TabIndex = 10;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "ATIVO";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radAtivo.AutoSize = true;
+            this.radAtivo.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            this.radAtivo.ForeColor = System.Drawing.Color.White;
+            this.radAtivo.Location = new System.Drawing.Point(18, 37);
+            this.radAtivo.Name = "radAtivo";
+            this.radAtivo.Size = new System.Drawing.Size(67, 21);
+            this.radAtivo.TabIndex = 10;
+            this.radAtivo.TabStop = true;
+            this.radAtivo.Text = "ATIVO";
+            this.radAtivo.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -201,46 +270,6 @@
             this.lblNome.TabIndex = 9;
             this.lblNome.Text = "TABELA";
             // 
-            // picSair
-            // 
-            this.picSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picSair.BackColor = System.Drawing.Color.Transparent;
-            this.picSair.Image = global::kibelezaPMS.Properties.Resources.fechar;
-            this.picSair.Location = new System.Drawing.Point(952, 21);
-            this.picSair.Name = "picSair";
-            this.picSair.Size = new System.Drawing.Size(33, 31);
-            this.picSair.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSair.TabIndex = 4;
-            this.picSair.TabStop = false;
-            this.picSair.Click += new System.EventHandler(this.picSair_Click);
-            // 
-            // btnEntrar
-            // 
-            this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
-            this.btnEntrar.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnEntrar.FlatAppearance.BorderSize = 2;
-            this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrar.Font = new System.Drawing.Font("Britannic Bold", 12F);
-            this.btnEntrar.ForeColor = System.Drawing.Color.White;
-            this.btnEntrar.Location = new System.Drawing.Point(859, 58);
-            this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(126, 33);
-            this.btnEntrar.TabIndex = 7;
-            this.btnEntrar.Text = "SALVAR";
-            this.btnEntrar.UseVisualStyleBackColor = false;
-            // 
-            // picAtualizar
-            // 
-            this.picAtualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picAtualizar.BackColor = System.Drawing.Color.Transparent;
-            this.picAtualizar.Image = global::kibelezaPMS.Properties.Resources.refresh;
-            this.picAtualizar.Location = new System.Drawing.Point(913, 21);
-            this.picAtualizar.Name = "picAtualizar";
-            this.picAtualizar.Size = new System.Drawing.Size(33, 31);
-            this.picAtualizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picAtualizar.TabIndex = 4;
-            this.picAtualizar.TabStop = false;
-            // 
             // frmRelatorio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,12 +287,12 @@
             this.Load += new System.EventHandler(this.frmRelatorio_Load);
             this.pnlRelatorio.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRelatorio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAtualizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picSair)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picSair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAtualizar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,9 +307,9 @@
         private System.Windows.Forms.RadioButton radEmpresa;
         private System.Windows.Forms.RadioButton radCliente;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radTelefone;
+        private System.Windows.Forms.RadioButton radInativo;
+        private System.Windows.Forms.RadioButton radAtivo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvRelatorio;
         private System.Windows.Forms.Button btnEntrar;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,27 @@ namespace kibelezaPMS
         {
             InitializeComponent();
         }
+        private void CarregarDados(string select)
+        {
+            try
+            {
+                banco.Conectar();
+                MySqlCommand cmd = new MySqlCommand(select, banco.conexao);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvFuncionario.DataSource = dt;
+
+                dgvFuncionario.ClearSelection();
+
+                banco.Desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao selecionar o relatório. \n\n", erro.Message);
+            }
+        }
 
         private void picSair_Click(object sender, EventArgs e)
         {
@@ -25,7 +47,7 @@ namespace kibelezaPMS
 
         private void frmFuncionario_Load(object sender, EventArgs e)
         {
-
+            CarregarDados("SELECT * FROM `funcionariocompleto`");
             pnlFuncionario.Location = new Point(this.Width / 2 - pnlFuncionario.Width / 2, this.Height / 2 - pnlFuncionario.Height / 2);
         }
 
@@ -41,6 +63,30 @@ namespace kibelezaPMS
             Variaveis.funcao = "ALTERAR";
             new frmCadFuncionario().Show();
             Hide();
+        }
+
+        private void txtNome_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNome.Text != "")
+            {
+                chkAtivo.Enabled = false;
+                chkAtivo.Checked = false;
+                Variaveis.nomeFuncionario = txtNome.Text;
+                CarregarDados("SELECT * FROM `funcionariocompleto` WHERE `NOME DO FUNCIONÁRIO` LIKE '"+ Variaveis.nomeFuncionario +"%'");
+            }
+            else
+            {
+                chkAtivo.Enabled = true;
+                CarregarDados("SELECT * FROM `funcionariocompleto`");
+            }
+        }
+
+        private void chkAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAtivo.Checked)
+            {
+                CarregarDados("SELECT * FROM `funcionarioativo`");
+            }
         }
     }
 }

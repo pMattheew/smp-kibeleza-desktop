@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlFuncionario = new System.Windows.Forms.Panel();
+            this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
@@ -47,10 +50,10 @@
             // 
             this.pnlFuncionario.BackgroundImage = global::kibelezaPMS.Properties.Resources.funcionario;
             this.pnlFuncionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlFuncionario.Controls.Add(this.dgvFuncionario);
             this.pnlFuncionario.Controls.Add(this.btnExcluir);
             this.pnlFuncionario.Controls.Add(this.btnAlterar);
             this.pnlFuncionario.Controls.Add(this.btnCadastrar);
-            this.pnlFuncionario.Controls.Add(this.dgvFuncionario);
             this.pnlFuncionario.Controls.Add(this.txtNome);
             this.pnlFuncionario.Controls.Add(this.lblStatus);
             this.pnlFuncionario.Controls.Add(this.lblNome);
@@ -60,6 +63,49 @@
             this.pnlFuncionario.Name = "pnlFuncionario";
             this.pnlFuncionario.Size = new System.Drawing.Size(1000, 600);
             this.pnlFuncionario.TabIndex = 2;
+            // 
+            // dgvFuncionario
+            // 
+            this.dgvFuncionario.AllowUserToAddRows = false;
+            this.dgvFuncionario.AllowUserToDeleteRows = false;
+            this.dgvFuncionario.AllowUserToResizeColumns = false;
+            this.dgvFuncionario.AllowUserToResizeRows = false;
+            this.dgvFuncionario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvFuncionario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Britannic Bold", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvFuncionario.EnableHeadersVisualStyles = false;
+            this.dgvFuncionario.Location = new System.Drawing.Point(182, 69);
+            this.dgvFuncionario.MultiSelect = false;
+            this.dgvFuncionario.Name = "dgvFuncionario";
+            this.dgvFuncionario.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(52)))), ((int)(((byte)(96)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFuncionario.Size = new System.Drawing.Size(803, 448);
+            this.dgvFuncionario.TabIndex = 12;
             // 
             // btnExcluir
             // 
@@ -108,15 +154,6 @@
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
-            // dgvFuncionario
-            // 
-            this.dgvFuncionario.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
-            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFuncionario.Location = new System.Drawing.Point(182, 69);
-            this.dgvFuncionario.Name = "dgvFuncionario";
-            this.dgvFuncionario.Size = new System.Drawing.Size(803, 448);
-            this.dgvFuncionario.TabIndex = 10;
-            // 
             // txtNome
             // 
             this.txtNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -125,6 +162,7 @@
             this.txtNome.Size = new System.Drawing.Size(508, 26);
             this.txtNome.TabIndex = 9;
             this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged);
             // 
             // lblStatus
             // 
@@ -159,6 +197,7 @@
             this.chkAtivo.TabIndex = 7;
             this.chkAtivo.Text = "ATIVO?";
             this.chkAtivo.UseVisualStyleBackColor = false;
+            this.chkAtivo.CheckedChanged += new System.EventHandler(this.chkAtivo_CheckedChanged);
             // 
             // picSair
             // 
@@ -202,11 +241,11 @@
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
-        private System.Windows.Forms.DataGridView dgvFuncionario;
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.CheckBox chkAtivo;
         private System.Windows.Forms.PictureBox picSair;
+        private System.Windows.Forms.DataGridView dgvFuncionario;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,8 +17,119 @@ namespace kibelezaPMS
         {
             InitializeComponent();
         }
+        private void InserirEmpresa()
+        {
+            try
+            {
+                banco.Conectar();
 
-        private void picSair_Click_1(object sender, EventArgs e)
+                string inserir = "INSERT INTO empresa(idEmpresa,nomeEmpresa,cnpjCpfEmpresa,razaoSocialEmpresa,emailEmpresa,statusEmpresa,dataCadEmpresa,horarioAtendEmpresa)VALUES(DEFAULT,@nome,@cnpjCpf,@razaoSocial,@email,@status,@dataCad,@horario)";
+
+                MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
+                cmd.Parameters.AddWithValue("@nome", Variaveis.nomeEmpresa);
+                cmd.Parameters.AddWithValue("@cnpjCpf", Variaveis.cnpjCpf);
+                cmd.Parameters.AddWithValue("@razaoSocial", Variaveis.razaoSocial);
+                cmd.Parameters.AddWithValue("@email", Variaveis.emailEmpresa);
+                cmd.Parameters.AddWithValue("@status", Variaveis.statusEmpresa);
+                cmd.Parameters.AddWithValue("@dataCad", Variaveis.dataCadEmpresa.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@horario", Variaveis.horarioAtendEmpresa.ToString("HH:mm"));
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Empresa cadastrada com sucesso!", "CADASTRO DA EMPRESA");
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar a empresa!\n\n" + ex.Message, "Erro.");
+            }
+        }
+
+        private void AlterarEmpresa()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string inserir = "UPDATE `empresa` SET `nomeEmpresa`=@nome,`cnpjCpfEmpresa`=@cnpjCpf,`razaoSocialEmpresa`=@razaoSocial,`emailEmpresa`=@email,`statusEmpresa`=@status,`horarioAtendEmpresa`=@horario WHERE idEmpresa = @codigo";
+
+                MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
+                cmd.Parameters.AddWithValue("@nome", Variaveis.nomeEmpresa);
+                cmd.Parameters.AddWithValue("@cnpjCpf", Variaveis.cnpjCpf);
+                cmd.Parameters.AddWithValue("@razaoSocial", Variaveis.razaoSocial);
+                cmd.Parameters.AddWithValue("@email", Variaveis.emailEmpresa);
+                cmd.Parameters.AddWithValue("@status", Variaveis.statusEmpresa);
+                cmd.Parameters.AddWithValue("@horario", Variaveis.horarioAtendEmpresa.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.codEmpresa);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Empresa atualizada com sucesso!", "CADASTRO DA EMPRESA");
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao atualizar a empresa!\n\n" + ex.Message, "Erro.");
+            }
+        }
+
+        private void CarregarDadosEmpresa()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT * FROM empresa WHERE idEmpresa=@codigo";
+
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.codEmpresa);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Variaveis.nomeEmpresa = reader.GetString(1);
+                    Variaveis.cnpjCpf = reader.GetString(2);
+                    Variaveis.razaoSocial = reader.GetString(3);
+                    Variaveis.emailEmpresa = reader.GetString(4);
+                    Variaveis.statusEmpresa = reader.GetString(5);
+                    Variaveis.dataCadEmpresa = reader.GetDateTime(6);
+                    Variaveis.horarioAtendEmpresa = DateTime.Parse(reader.GetString(7));
+
+                    txtCodigo.Text = Variaveis.codEmpresa.ToString();
+                    txtNomeEmpresa.Text = Variaveis.nomeEmpresa;
+
+                    if (mkdCnpjCpf.Text.Length > 15)
+                    {
+                        radCnpj.Checked = true;
+                    }
+                    else
+                    {
+                        radCpf.Checked = true;
+                    }
+
+                    mkdCnpjCpf.Text = Variaveis.cnpjCpf;
+                    txtRazao.Text = Variaveis.razaoSocial;
+                    txtEmail.Text = Variaveis.emailEmpresa;
+                    cmbStatus.Text = Variaveis.statusEmpresa;
+                    mkdDataCad.Text = Variaveis.dataCadEmpresa.ToString("dd/MM/yyyy");
+                    cmbHorario.Text = Variaveis.horarioAtendEmpresa.ToString("HH:mm");
+
+                }
+
+                banco.Desconectar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar dados da empresa!\n\n" + ex.Message, "Erro.");
+            }
+        }
+
+            private void picSair_Click_1(object sender, EventArgs e)
         {
             new frmEmpresa().Show();
             Close();
@@ -31,6 +143,8 @@ namespace kibelezaPMS
             {
                 pnlTelefone.Enabled = true;
                 lblCadEmpresa.Text = "ALTERAR EMPRESA";
+                CarregarDadosEmpresa();
+                // CarregarFoneEmpresa();
             }
         }
 
@@ -94,7 +208,12 @@ namespace kibelezaPMS
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                if (Variaveis.funcao == "CADASTRAR")
+                {
+                    mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
+                }
+
                 cmbHorario.Focus();
             }
         }
@@ -164,9 +283,23 @@ namespace kibelezaPMS
                 Variaveis.razaoSocial = txtRazao.Text;
                 Variaveis.emailEmpresa = txtEmail.Text;
                 Variaveis.statusEmpresa = cmbStatus.Text;
-                mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                if (Variaveis.funcao == "CADASTRAR")
+                {
+                    mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                    Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
+                }
                 Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
                 Variaveis.horarioAtendEmpresa = DateTime.Parse(cmbHorario.Text);
+
+                if (Variaveis.funcao == "CADASTRAR")
+                {
+                    InserirEmpresa();
+                    // CarregarEmpresaCadastrada();
+                }
+                else if (Variaveis.funcao == "ALTERAR")
+                {
+                    AlterarEmpresa();
+                }
 
                 pnlTelefone.Enabled = true;
                 btnSalvar.Enabled = false;

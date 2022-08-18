@@ -122,9 +122,16 @@ namespace kibelezaPMS
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Variaveis.funcao = "ALTERAR";
-            new frmCadEmpresa().Show();
-            Hide();
+            if (Variaveis.linhaSelecionada >= 0)
+            {
+                Variaveis.funcao = "ALTERAR";
+                new frmCadEmpresa().Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Para alterar selecione uma linha.");
+            }
         }
 
         private void chkAtivo_CheckedChanged(object sender, EventArgs e)
@@ -154,6 +161,22 @@ namespace kibelezaPMS
                 Variaveis.nomeEmpresa = txtNome.Text;
                 CarregarEmpresaNome();
             }
+        }
+
+        private void dgvEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Variaveis.linhaSelecionada = int.Parse(e.RowIndex.ToString());
+
+            if(Variaveis.linhaSelecionada >= 0)
+            {
+                Variaveis.codEmpresa = Convert.ToInt32(dgvEmpresa[0, Variaveis.linhaSelecionada].Value);
+            }
+        }
+
+        private void dgvEmpresa_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvEmpresa.Sort(dgvEmpresa.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
+            dgvEmpresa.ClearSelection(); // limpar coluna&linha selecionada
         }
     }
 }

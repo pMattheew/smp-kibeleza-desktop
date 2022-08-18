@@ -10,6 +10,7 @@ namespace kibelezaPMS
     {
         // geral
         public static string funcao;
+        public static int linhaSelecionada;
 
         // login 
         public static string usuario, senha, nivel;

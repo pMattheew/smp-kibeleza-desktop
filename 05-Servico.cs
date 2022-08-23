@@ -71,8 +71,7 @@ namespace kibelezaPMS
             {
                 chkAtivo.Enabled = false;
                 chkAtivo.Checked = false;
-                Variaveis.nomeServico = txtNome.Text;
-                CarregarDados("SELECT * FROM `servicocompleto` WHERE `NOME DO SERVIÇO` LIKE '"+Variaveis.nomeServico+"%'");
+                CarregarDados("SELECT * FROM `servicocompleto` WHERE `NOME DO SERVIÇO` LIKE ");
             }
             else
             {

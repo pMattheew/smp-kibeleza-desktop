@@ -129,7 +129,90 @@ namespace kibelezaPMS
             }
         }
 
-            private void picSair_Click_1(object sender, EventArgs e)
+        private void CarregarEmpresaCadastrada()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT idEmpresa FROM empresa WHERE nomeEmpresa=@nome AND cnpjfCpfEmpresa=@cnpjCpf";
+
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                cmd.Parameters.AddWithValue("@nome",Variaveis.nomeEmpresa);
+                cmd.Parameters.AddWithValue("@cnpjCpf", Variaveis.cnpjCpf);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Variaveis.codEmpresa = reader.GetInt32(0);
+                    txtCodigo.Text = Variaveis.codEmpresa.ToString();
+                }
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar empresa cadastrada!\n\n" + ex.Message, "ERRO");
+            }
+        }
+
+        private void CarregarFoneEmpresa()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT * FROM foneempresa WHERE idEmpresa=@codigo";
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.codEmpresa);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvFoneEmpresa.DataSource = dt;
+                dgvFoneEmpresa.Columns[0].HeaderText = "CÓDIGO";
+                dgvFoneEmpresa.Columns[0].Visible = false;
+                dgvFoneEmpresa.Columns[1].HeaderText = "NÚMERO TELEFONE";
+                dgvFoneEmpresa.Columns[2].HeaderText = "OPERADORA";
+                dgvFoneEmpresa.Columns[3].HeaderText = "DESCRIÇÃO";
+                dgvFoneEmpresa.Columns[4].HeaderText = "EMPRESA";
+                dgvFoneEmpresa.Columns[4].Visible = false;
+                dgvFoneEmpresa.ClearSelection();
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar telefone da empresa!\n\n" + ex.Message, "ERRO");
+            }
+        }
+
+        private void ExcluirFoneEmpresa()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string excluir = "DELETE FROM foneempresa WHERE idFoneEmpresa=@codFone";
+                MySqlCommand cmd = new MySqlCommand(excluir, banco.conexao);
+                cmd.Parameters.AddWithValue("@codFone", Variaveis.codFoneEmpresa);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvFoneEmpresa.DataSource = dt;
+
+                dgvFoneEmpresa.ClearSelection();
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir telefone da empresa!\n\n" + ex.Message, "ERRO");
+            }
+        }
+
+        private void picSair_Click_1(object sender, EventArgs e)
         {
             new frmEmpresa().Show();
             Close();
@@ -139,25 +222,32 @@ namespace kibelezaPMS
         {
             pnlCadEmpresa.Location = new Point(this.Width / 2 - pnlCadEmpresa.Width / 2, this.Height / 2 - pnlCadEmpresa.Height / 2);
 
+            Variaveis.linhaFoneSelecionada = -1;
+
             if (Variaveis.funcao == "ALTERAR")
             {
                 pnlTelefone.Enabled = true;
                 lblCadEmpresa.Text = "ALTERAR EMPRESA";
                 CarregarDadosEmpresa();
-                // CarregarFoneEmpresa();
+                CarregarFoneEmpresa();
             }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            Variaveis.funcao = "CADASTRAR FONE";
             new frmFoneEmpresa().Show();
             Hide();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            new frmFoneEmpresa().Show();
-            Hide();
+            if (Variaveis.linhaFoneSelecionada >= 0)
+            {
+                Variaveis.funcao = "ALTERAR FONE";
+                new frmFoneEmpresa().Show();
+                Hide();
+            }
         }
 
         private void radCpf_CheckedChanged(object sender, EventArgs e)
@@ -294,7 +384,7 @@ namespace kibelezaPMS
                 if (Variaveis.funcao == "CADASTRAR")
                 {
                     InserirEmpresa();
-                    // CarregarEmpresaCadastrada();
+                    CarregarEmpresaCadastrada();
                 }
                 else if (Variaveis.funcao == "ALTERAR")
                 {
@@ -327,6 +417,27 @@ namespace kibelezaPMS
             cmbHorario.SelectedIndex = -1;
 
             txtNomeEmpresa.Focus();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            ExcluirFoneEmpresa();
+        }
+
+        private void dgvFoneEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Variaveis.linhaFoneSelecionada = int.Parse(e.RowIndex.ToString());
+
+            if (Variaveis.linhaFoneSelecionada >= 0)
+            {
+                Variaveis.codEmpresa = Convert.ToInt32(dgvFoneEmpresa[0, Variaveis.linhaFoneSelecionada].Value);
+            }
+        }
+
+        private void dgvFoneEmpresa_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvFoneEmpresa.Sort(dgvFoneEmpresa.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
+            dgvFoneEmpresa.ClearSelection();
         }
     }
 }

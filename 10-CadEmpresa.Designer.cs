@@ -115,6 +115,8 @@
             this.dgvFoneEmpresa.Name = "dgvFoneEmpresa";
             this.dgvFoneEmpresa.Size = new System.Drawing.Size(448, 192);
             this.dgvFoneEmpresa.TabIndex = 0;
+            this.dgvFoneEmpresa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoneEmpresa_CellClick);
+            this.dgvFoneEmpresa.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFoneEmpresa_ColumnHeaderMouseClick);
             // 
             // btnCadastrar
             // 
@@ -162,6 +164,7 @@
             this.btnExcluir.TabIndex = 11;
             this.btnExcluir.Text = "EXCLUIR";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // picSair
             // 

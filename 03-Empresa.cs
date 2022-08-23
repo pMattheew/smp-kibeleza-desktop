@@ -101,6 +101,30 @@ namespace kibelezaPMS
             }
         }
 
+        private void ExcluirEmpresa()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string excluir = "DELETE FROM empresa WHERE idEmpresa=@codigo";
+                MySqlCommand cmd = new MySqlCommand(excluir, banco.conexao);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvEmpresa.DataSource = dt;
+
+                dgvEmpresa.ClearSelection();
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir empresa!\n\n" + ex, "ERRO");
+            }
+        }
+
         private void picSair_Click(object sender, EventArgs e)
         {
             new frmMenu().Show();
@@ -110,6 +134,7 @@ namespace kibelezaPMS
         private void frmEmpresa_Load(object sender, EventArgs e)
         {
             pnlEmpresa.Location = new Point(this.Width / 2 - pnlEmpresa.Width / 2, this.Height / 2 - pnlEmpresa.Height / 2);
+            Variaveis.linhaSelecionada = -1;
             CarregarEmpresa();
         }
 
@@ -177,6 +202,22 @@ namespace kibelezaPMS
         {
             dgvEmpresa.Sort(dgvEmpresa.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
             dgvEmpresa.ClearSelection(); // limpar coluna&linha selecionada
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (Variaveis.linhaSelecionada >= 0)
+            {
+                var resultado = MessageBox.Show("Deseja realmente excluir?", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    ExcluirEmpresa();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para excluir selecione uma linha.");
+            }
         }
     }
 }

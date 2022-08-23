@@ -142,6 +142,7 @@
             // cmbNomeEmpresa
             // 
             this.cmbNomeEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNomeEmpresa.Enabled = false;
             this.cmbNomeEmpresa.FormattingEnabled = true;
             this.cmbNomeEmpresa.Location = new System.Drawing.Point(222, 91);
             this.cmbNomeEmpresa.Name = "cmbNomeEmpresa";
@@ -176,6 +177,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.txtCodigo.Location = new System.Drawing.Point(222, 40);
             this.txtCodigo.Name = "txtCodigo";
@@ -223,6 +225,7 @@
             this.btnSalvar.TabIndex = 5;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // frmFoneEmpresa
             // 

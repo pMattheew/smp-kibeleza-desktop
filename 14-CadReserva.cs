@@ -170,12 +170,9 @@ namespace kibelezaPMS
             }
             else
             {
-                Variaveis.obsReserva = txtObservacao.Text;
+                Variaveis.obs = txtObservacao.Text;
                 Variaveis.horarioReserva = DateTime.Parse(cmbHorario.Text);
                 Variaveis.statusReserva = cmbStatus.Text;
-                Variaveis.funcionarioReserva = cmbFuncionario.Text;
-                Variaveis.clienteReserva = cmbCliente.Text;
-                Variaveis.servicoReserva = cmbServico.Text;
 
                 btnSalvar.Enabled = false;
                 btnLimpar.Enabled = false;

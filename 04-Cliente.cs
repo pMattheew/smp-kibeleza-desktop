@@ -94,6 +94,9 @@ namespace kibelezaPMS
         private void frmCliente_Load(object sender, EventArgs e)
         {
             pnlCliente.Location = new Point(this.Width / 2 - pnlCliente.Width / 2, this.Height / 2 - pnlCliente.Height / 2);
+
+            Variaveis.linhaSelecionada = -1;
+
             CarregarCliente();
         }
 
@@ -106,9 +109,16 @@ namespace kibelezaPMS
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            Variaveis.funcao = "ALTERAR";
-            new frmCadCliente().Show();
-            Hide();
+            if (Variaveis.linhaSelecionada >= 0)
+            {
+                Variaveis.funcao = "ALTERAR";
+                new frmCadCliente().Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Para alterar selecione uma linha.");
+            }
         }
 
         private void chkAtivo_CheckedChanged(object sender, EventArgs e)

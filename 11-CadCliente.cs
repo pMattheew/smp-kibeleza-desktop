@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -296,6 +297,8 @@ namespace kibelezaPMS
         {
             pnlCadCliente.Location = new Point(this.Width / 2 - pnlCadCliente.Width / 2, this.Height / 2 - pnlCadCliente.Height / 2);
 
+            Variaveis.linhaSelecionada = -1;
+
             if (Variaveis.funcao == "ALTERAR")
             {
                 lblCadCliente.Text = "ALTERAR CLIENTE";
@@ -314,14 +317,22 @@ namespace kibelezaPMS
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            Variaveis.funcao = "CADASTRAR FONE";
             new frmFoneCliente().Show();
             Hide();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            new frmFoneCliente().Show();
-            Hide();
+            if (Variaveis.linhaFoneSelecionada >= 0)
+            {
+                new frmFoneCliente().Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("Para alterar selecione uma linha.");
+            }
         }
 
         private void txtNomeCliente_KeyPress(object sender, KeyPressEventArgs e)
@@ -367,8 +378,47 @@ namespace kibelezaPMS
 
         private void btnFoto_Click(object sender, EventArgs e)
         {
-            Variaveis.atFotoCliente = "S";
-            btnSalvar.Focus();
+            try
+            {
+                OpenFileDialog ofdFoto = new OpenFileDialog();
+                ofdFoto.Multiselect = false;
+                ofdFoto.FileName = "";
+                ofdFoto.InitialDirectory = @"C:";
+                ofdFoto.Title = "Selecione uma foto";
+                ofdFoto.Filter = "JPG ou PNG (*.jpg ou *.png)|*.jpg;*.png";
+                ofdFoto.CheckFileExists = true;
+                ofdFoto.CheckPathExists = true;
+                ofdFoto.RestoreDirectory = true;
+
+                DialogResult result = ofdFoto.ShowDialog();
+
+                picFoto.Image = Image.FromFile(ofdFoto.FileName);
+
+                Variaveis.fotoCliente = "cliente/" + Path.GetFileName(ofdFoto.FileName);
+
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        Variaveis.atFotoCliente = "S";
+                        Variaveis.caminhoFotoCliente = ofdFoto.FileName;
+                    }
+                    catch (SecurityException ex)
+                    {
+                        MessageBox.Show("Erro de segurança, fale com o administrador do sistema. \n Mensagem:\n" + ex.StackTrace);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Você não tem permissão." + ex.Message);
+                    }
+                    Variaveis.atFotoCliente = "S";
+                    btnSalvar.Focus();
+                }
+            }
+            catch
+            {
+                btnSalvar.Focus();
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
@@ -435,6 +485,11 @@ namespace kibelezaPMS
                 else if (Variaveis.funcao == "ALTERAR")
                 {
                     AlterarCliente();
+
+                    if (Variaveis.atFotoCliente == "S")
+                    {
+                        AlterarFotoCliente();
+                    }
                 }
 
                 pnlTelefone.Enabled = true;

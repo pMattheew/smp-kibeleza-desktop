@@ -135,7 +135,7 @@ namespace kibelezaPMS
             {
                 banco.Conectar();
 
-                string selecionar = "SELECT idEmpresa FROM empresa WHERE nomeEmpresa=@nome AND cnpjfCpfEmpresa=@cnpjCpf";
+                string selecionar = "SELECT idEmpresa FROM empresa WHERE nomeEmpresa=@nome AND cnpjCpfEmpresa=@cnpjCpf";
 
                 MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
                 cmd.Parameters.AddWithValue("@nome",Variaveis.nomeEmpresa);
@@ -424,7 +424,7 @@ namespace kibelezaPMS
             ExcluirFoneEmpresa();
         }
 
-        private void dgvFoneEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvFoneEmpresa_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Variaveis.linhaFoneSelecionada = int.Parse(e.RowIndex.ToString());
 
@@ -434,7 +434,7 @@ namespace kibelezaPMS
             }
         }
 
-        private void dgvFoneEmpresa_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvFoneEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvFoneEmpresa.Sort(dgvFoneEmpresa.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
             dgvFoneEmpresa.ClearSelection();

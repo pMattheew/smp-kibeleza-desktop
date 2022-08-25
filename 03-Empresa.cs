@@ -107,14 +107,14 @@ namespace kibelezaPMS
             {
                 banco.Conectar();
 
-                string excluir = "DELETE FROM empresa WHERE idEmpresa=@codigo";
+                string excluir = "DELETE FROM `empresa` WHERE `idEmpresa`=@codigo";
                 MySqlCommand cmd = new MySqlCommand(excluir, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.codEmpresa);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 dgvEmpresa.DataSource = dt;
-
                 dgvEmpresa.ClearSelection();
 
                 banco.Desconectar();

@@ -84,6 +84,30 @@ namespace kibelezaPMS
                 MessageBox.Show("Erro ao selecionar o cliente. \n\n", erro.Message);
             }
         }
+        private void ExcluirCliente()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string excluir = "DELETE FROM cliente WHERE idCliente=@codigo";
+                MySqlCommand cmd = new MySqlCommand(excluir, banco.conexao);
+                cmd.Parameters.AddWithValue("@codigo", Variaveis.codCliente);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                dgvCliente.DataSource = dt;
+
+                dgvCliente.ClearSelection();
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir cliente!\n\n" + ex, "ERRO");
+            }
+        }
 
         private void picSair_Click(object sender, EventArgs e)
         {
@@ -147,6 +171,38 @@ namespace kibelezaPMS
                 Variaveis.nomeCliente = txtNome.Text;
                 CarregarClienteNome();
             }
+        }
+
+        private void dgvCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Variaveis.linhaSelecionada = int.Parse(e.RowIndex.ToString());
+
+            if (Variaveis.linhaSelecionada >= 0)
+            {
+                Variaveis.codCliente= Convert.ToInt32(dgvCliente[0, Variaveis.linhaSelecionada].Value);
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (Variaveis.linhaSelecionada >= 0)
+            {
+                var resultado = MessageBox.Show("Deseja realmente excluir?", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    ExcluirCliente();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para excluir selecione uma linha.");
+            }
+        }
+
+        private void dgvCliente_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvCliente.Sort(dgvCliente.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
+            dgvCliente.ClearSelection();
         }
     }
 }

@@ -15,7 +15,9 @@ namespace kibelezaPMS
             try
             {
                 FileInfo arquivoInfo = new FileInfo(arquivo);
+
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(new Uri(url));
+
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 request.Credentials = new NetworkCredential(usuario, senha);
                 request.UseBinary = true;

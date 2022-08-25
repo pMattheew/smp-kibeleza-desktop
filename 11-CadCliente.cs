@@ -25,7 +25,7 @@ namespace kibelezaPMS
         {
             if (string.IsNullOrEmpty(Variaveis.enderecoServidorFtp) ||
                 string.IsNullOrEmpty(Variaveis.usuarioFtp) ||
-                string.IsNullOrEmpty(Variaveis.senha))
+                string.IsNullOrEmpty(Variaveis.senhaFtp))
             {
                 return false;
             }
@@ -60,15 +60,15 @@ namespace kibelezaPMS
             try
             {
                 banco.Conectar();
-                string inserir = "INSERT INTO cliente(idCliente,nomeCliente,emailCliente,senhaCliente,statusCliente,dataCadCliente,fotoCliente) VALUES (DEFAULT,@nome,@email,@senha,@status,@dataCad,@foto)";
+                string inserir = "INSERT INTO `cliente`(`idCliente`, `nomeCliente`, `emailCliente`, `senhaCliente`, `statusCliente`, `dataCadCliente`, `fotoCliente`) VALUES (DEFAULT,@nome,@email,@senha,@status,@dataCad,@foto)";
                 MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
-
                 cmd.Parameters.AddWithValue("@nome", Variaveis.nomeCliente);
                 cmd.Parameters.AddWithValue("@email", Variaveis.emailCliente);
                 cmd.Parameters.AddWithValue("@senha", Variaveis.senhaCliente);
                 cmd.Parameters.AddWithValue("@status", Variaveis.statusCliente);
                 cmd.Parameters.AddWithValue("@dataCad", Variaveis.dataCadCliente.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@foto", Variaveis.fotoCliente);
+                cmd.Parameters.AddWithValue("@foto", Variaveis.nomeCliente);
+                cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente cadastrado com sucesso!", "Cadastro do cliente");
                 banco.Desconectar();
@@ -233,7 +233,7 @@ namespace kibelezaPMS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao carregar dados do cliente!\n\n" + ex.Message, "Erro.");
+                MessageBox.Show("Erro ao carregar dados do cliente!\n\n" + ex, "Erro.");
             }
         }
 

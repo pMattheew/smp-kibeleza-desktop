@@ -149,6 +149,8 @@
             this.dgvFoneCliente.Name = "dgvFoneCliente";
             this.dgvFoneCliente.Size = new System.Drawing.Size(448, 192);
             this.dgvFoneCliente.TabIndex = 0;
+            this.dgvFoneCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFoneCliente_CellClick);
+            this.dgvFoneCliente.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFoneCliente_ColumnHeaderMouseClick);
             // 
             // btnCadastrar
             // 

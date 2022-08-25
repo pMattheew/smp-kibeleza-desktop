@@ -23,7 +23,7 @@ namespace kibelezaPMS
             {
                 banco.Conectar();
 
-                string inserir = "INSERT INTO foneempresa(idFoneEmpresa,numeroFoneEmpresa,operFoneEmpresa,descFoneEmpresa,idEmpresa)VALUES(DEFAULT,@numero,@operadora,@descricao,@)";
+                string inserir = "INSERT INTO foneempresa(idFoneEmpresa,numeroFoneEmpresa,operFoneEmpresa,descFoneEmpresa,idEmpresa)VALUES(DEFAULT,@numero,@operadora,@descricao,@codEmpresa)";
 
                 MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
                 cmd.Parameters.AddWithValue("@numero", Variaveis.foneEmpresa);

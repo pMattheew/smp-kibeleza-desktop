@@ -519,7 +519,34 @@ namespace kibelezaPMS
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            ExcluirFoneCliente();
+            if (Variaveis.linhaFoneSelecionada >= 0)
+            {
+                var resultado = MessageBox.Show("Deseja realmente excluir?", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    ExcluirFoneCliente();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Para excluir selecione uma linha.");
+            }
+        }
+
+        private void dgvFoneCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Variaveis.linhaFoneSelecionada = int.Parse(e.RowIndex.ToString());
+            if (Variaveis.linhaFoneSelecionada >= 0)
+            {
+                Variaveis.codFoneCliente = Convert.ToInt32(dgvFoneCliente[0, Variaveis.linhaFoneSelecionada].Value);
+            }
+        }
+
+        private void dgvFoneCliente_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            dgvFoneCliente.Sort(dgvFoneCliente.Columns[1], ListSortDirection.Ascending);
+            dgvFoneCliente.ClearSelection();
         }
     }
 }

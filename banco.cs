@@ -43,5 +43,84 @@ namespace kibelezaPMS
                 MessageBox.Show("Erro ao desconectar com o banco", "ERRO");
             }
         }
+
+        // método para puxar dados do banco via comandos
+        private void CarregarDados(string query, string DataGridReceptor)
+        {   
+            try
+            {
+                banco.Conectar();
+                
+                MySqlCommand cmd = new MySqlCommand(query, banco.conexao);  // gera a query
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);  // adapta os dados da query
+
+                DataTable dt = new DataTable(); // cria uma nova instância de tabela de dados
+
+                da.Fill(dt); // enche a DataTable com os dados adaptados do banco de dados
+
+
+                [DataGridReceptor].DataSource = dt;
+                [DataGridReceptor].ClearSelection();
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao fazer consulta: \n\n" + ex.Message);
+            }
+        }
+
+        private void ExcluirLinha(string tabela, string coluna, string linha) 
+        {   // recebe a tabela que será feita o delete, a coluna (geralmente idAlgumaCoisa) e a linha (alvo da deleção).
+            // deverá receber a coluna correspondente do banco, e a variável correspondente do sistema (ex idEmpresa=@codEmpresa)
+            // OBS: por conta do sistema já estar montado, o nome da tabela deve ser o mesmo da DataGridView APÓS "dgv", ver linha 92.
+            try
+            {
+                banco.Conectar();
+                                            //  empresa............idEmpresa........codEmpresa
+                string query = "DELETE FROM " + tabela + " WHERE " + coluna + "=@" + linha;
+
+                MySqlCommand cmd = new MySqlCommand(query, banco.conexao);
+
+                cmd.Parameters.AddWithValue("@"+linha, Variaveis.[linha]); // declara a variável do SQL com o valor armazenado no objeto Variaveis do sistema (codEmpresa).
+                
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable(); 
+                da.Fill(dt);
+
+                // concatena a inicial maiúscula com o resto da string (dgv + E + mpresa = dgvEmpresa)
+                dataGridView = ["dgv" + char.ToUpper(tabela[0]) + tabela.Substring(1)];
+
+                dataGridView.DataSource = dt;
+                dataGridView.ClearSelection()
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao excluir campo: \n\n" + ex.Message)
+            }
+        }
+
+    /*
+        banco.ExcluirLinha("empresa", "idEmpresa", "codEmpresa")
+    */
+        private void InserirLinha(string tabela /*recebera objeto inteligente com campo: valor*/)
+        {
+            try
+            {
+                banco.Conectar();
+
+                string query = "INSERT INTO " + tabela;
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar nova linha: \n\n" + ex.Message)
+            }
+        }
+
     }
 }

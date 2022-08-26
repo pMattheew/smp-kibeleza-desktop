@@ -95,7 +95,7 @@ namespace kibelezaPMS
                 // concatena a inicial maiúscula com o resto da string (dgv + E + mpresa = dgvEmpresa) #
                 string nomeDgv = "dgv" + char.ToUpper(tabela[0]) + tabela.Substring(1); //#
 
-                DataGridView dataGridView = new DataGridView(); 
+                DataGridView dataGridView = new DataGridView(); //#
 
                 dataGridView.Name = nomeDgv; 
 
@@ -113,13 +113,25 @@ namespace kibelezaPMS
     /*
         banco.ExcluirLinha("empresa", "idEmpresa", Variaveis.codEmpresa)
     */
-        public static void InserirLinha(string tabela /*recebera objeto inteligente com campo: valor*/)
+        public class Inserir
+        {
+            
+        }
+
+        public static void InserirLinha(string tabela, object chaves, object valores /*recebera objeto inteligente com campo: valor*/)
         {
             try
             {
                 Conectar();
 
-                string query = "INSERT INTO " + tabela;
+                string query = "INSERT INTO " + tabela + "(" + chaves + ")VALUES(" + valores + ")";
+
+                MySqlCommand cmd = new MySqlCommand(query, conexao);
+
+
+                Type type = typeof(Inserir);
+
+                foreach (string element in chaves)
 
                 Desconectar();
             }

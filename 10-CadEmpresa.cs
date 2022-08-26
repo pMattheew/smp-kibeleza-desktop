@@ -46,6 +46,13 @@ namespace kibelezaPMS
             }
         }
 
+        public class InserirNovaEmpresa
+        {
+            public static int idEmpresa;
+            public static string nomeEmpresa, cnpjCpfEmpresa, razaoSocialEmpresa, emailEmpresa, statusEmpresa;
+            public static DateTime dataCadEmpresa, horarioAtendEmpresa;
+        }
+
         private void AlterarEmpresa()
         {
             try

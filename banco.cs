@@ -77,7 +77,7 @@ namespace kibelezaPMS
         public static void ExcluirLinha(string tabela, string coluna, int linha) 
         {   // recebe a tabela que será feita o delete, a coluna (geralmente idAlgumaCoisa) e a linha (alvo da deleção).
             // deverá receber a coluna correspondente do banco, e a variável correspondente do sistema (ex idEmpresa=@codEmpresa)
-            // OBS: por conta do sistema já estar montado, o nome da tabela deve ser o mesmo da DataGridView APÓS "dgv", ver linha 95.
+            // OBS: por conta do sistema já estar montado, o nome da tabela deve ser o mesmo da DataGridView APÓS "dgv"; as linhas que terminam com # podem ser excluidas para tirar esta feature, ver linha 95.
             try
             {
                 Conectar();
@@ -92,12 +92,12 @@ namespace kibelezaPMS
                 DataTable dt = new DataTable(); 
                 da.Fill(dt);
 
-                // concatena a inicial maiúscula com o resto da string (dgv + E + mpresa = dgvEmpresa)
-                string nomeDgv = "dgv" + char.ToUpper(tabela[0]) + tabela.Substring(1);
+                // concatena a inicial maiúscula com o resto da string (dgv + E + mpresa = dgvEmpresa) #
+                string nomeDgv = "dgv" + char.ToUpper(tabela[0]) + tabela.Substring(1); //#
 
-                DataGridView dataGridView = new DataGridView();
+                DataGridView dataGridView = new DataGridView(); 
 
-                dataGridView.Name = nomeDgv;
+                dataGridView.Name = nomeDgv; 
 
                 dataGridView.DataSource = dt;
                 dataGridView.ClearSelection();

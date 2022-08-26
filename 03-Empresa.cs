@@ -18,113 +18,6 @@ namespace kibelezaPMS
             InitializeComponent();
         }
 
-        private void CarregarEmpresa()
-        {
-            try
-            {
-                banco.Conectar();
-                string selecionar = "SELECT * FROM `empresacompleta`";
-
-                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao); // gera o comando
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd); // adapta para a linguagem C#
-
-                DataTable dt = new DataTable(); // coloca os dados adaptados em um vetor
-
-                da.Fill(dt); // enche a DataTable com os dados adaptados do db
-
-
-                dgvEmpresa.DataSource = dt;
-
-                dgvEmpresa.ClearSelection();
-
-                banco.Desconectar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar a empresa. \n\n" + ex.Message);
-            }
-        }
-        private void CarregarEmpresaAtiva()
-        {
-            try
-            {
-                banco.Conectar();
-                string selecionar = "SELECT * FROM `empresaativa`";
-
-                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao); // gera o comando
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd); // adapta para a linguagem C#
-
-                DataTable dt = new DataTable(); // coloca os dados adaptados em um vetor
-
-                da.Fill(dt); // enche a DataTable com os dados adaptados do db
-
-
-                dgvEmpresa.DataSource = dt;
-
-                dgvEmpresa.ClearSelection();
-
-                banco.Desconectar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar a empresa. \n\n" + ex.Message);
-            }
-        }
-
-        private void CarregarEmpresaNome()
-        {
-            try
-            {
-                banco.Conectar();
-                string selecionar = "SELECT * FROM `empresacompleta` WHERE `NOME DA EMPRESA` LIKE '" + Variaveis.nomeEmpresa + "%' ";
-
-                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao); // gera o comando
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd); // adapta para a linguagem C#
-
-                DataTable dt = new DataTable(); // coloca os dados adaptados em um vetor
-
-                da.Fill(dt); // enche a DataTable com os dados adaptados do db
-
-
-                dgvEmpresa.DataSource = dt;
-
-                dgvEmpresa.ClearSelection();
-
-                banco.Desconectar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao carregar a empresa. \n\n" + ex.Message);
-            }
-        }
-
-        private void ExcluirEmpresa()
-        {
-            try
-            {
-                banco.Conectar();
-
-                string excluir = "DELETE FROM `empresa` WHERE `idEmpresa`=@codigo";
-                MySqlCommand cmd = new MySqlCommand(excluir, banco.conexao);
-                cmd.Parameters.AddWithValue("@codigo", Variaveis.codEmpresa);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                dgvEmpresa.DataSource = dt;
-                dgvEmpresa.ClearSelection();
-
-                banco.Desconectar();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao excluir empresa!\n\n" + ex, "ERRO");
-            }
-        }
-
         private void picSair_Click(object sender, EventArgs e)
         {
             new frmMenu().Show();
@@ -135,7 +28,8 @@ namespace kibelezaPMS
         {
             pnlEmpresa.Location = new Point(this.Width / 2 - pnlEmpresa.Width / 2, this.Height / 2 - pnlEmpresa.Height / 2);
             Variaveis.linhaSelecionada = -1;
-            CarregarEmpresa();
+
+            banco.CarregarDados("empresacompleta", dgvEmpresa);
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -163,11 +57,11 @@ namespace kibelezaPMS
         {
             if (chkAtivo.Checked)
             {
-                CarregarEmpresaAtiva();
+                banco.CarregarDados("empresaativa", dgvEmpresa);
             }
             else
             {
-                CarregarEmpresa();
+                banco.CarregarDados("empresacompleta", dgvEmpresa);
             }
 
         }
@@ -177,14 +71,15 @@ namespace kibelezaPMS
             if (txtNome.Text == "")
             {
                 chkAtivo.Enabled = true;
-                CarregarEmpresa();
+                banco.CarregarDados("empresacompleta", dgvEmpresa);
             }
             else
             {
                 chkAtivo.Checked = false;
                 chkAtivo.Enabled = false;
                 Variaveis.nomeEmpresa = txtNome.Text;
-                CarregarEmpresaNome();
+
+                banco.CarregarDados("empresacompleta WHERE `NOME DA EMPRESA` LIKE '" + Variaveis.nomeEmpresa + "%' ", dgvEmpresa);
             }
         }
 
@@ -211,7 +106,9 @@ namespace kibelezaPMS
                 var resultado = MessageBox.Show("Deseja realmente excluir?", "EXCLUIR", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.Yes)
                 {
-                    ExcluirEmpresa();
+
+                    banco.ExcluirLinha("empresa", "idEmpresa", Variaveis.codEmpresa);
+                    banco.CarregarDados("empresacompleta", dgvEmpresa);
                 }
             }
             else

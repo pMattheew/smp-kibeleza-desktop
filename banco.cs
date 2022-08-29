@@ -118,26 +118,59 @@ namespace kibelezaPMS
             
         }
 
-        public static void InserirLinha(string tabela, object chaves, object valores /*recebera objeto inteligente com campo: valor*/)
+        public static void InserirLinha(string tabela, string[] chaves)
         {
             try
             {
                 Conectar();
 
-                string query = "INSERT INTO " + tabela + "(" + chaves + ")VALUES(" + valores + ")";
+                // função que recebe true/false para concatenar os valores do insert em uma só string
+                static Concatenar(bool @)
+                {
+                    string resultado;
+
+                    period = @ ? ",@" : ",";
+
+                    foreach(string chave in chaves)
+                    {
+                        resultado += (period+chave);
+                    }
+                    return resultado;
+                
+                }
+
+                nome = char.ToUpper(tabela[0]) + tabela.Substring(1);
+
+                string query = "INSERT INTO " + tabela + "(id"+nome  + Concatenar(false) + ")VALUES(DEFAULT" + Concatenar(true) + ")";
 
                 MySqlCommand cmd = new MySqlCommand(query, conexao);
 
+                // repetição para dar valor aos parâmetros do insert
+                foreach (string chave in chaves)
+                {
+                    if (chave.Contains("dataCad"))
+                    {
+                        cmd.Parameters.AddWithValue(chave, Variaveis[chave].ToString("yyyy-MM-dd"));
+                    }
+                    else if (chave.Contains("horario"))
+                    {
+                        cmd.Parameters.AddWithValue(chave, Variaveis[chave].ToString("HH:mm"));
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue(chave, Variaveis[chave]);
+                    }
+                }
 
-                Type type = typeof(Inserir);
+                cmd.ExecuteNonQuery();
 
-                foreach (string element in chaves)
+                MessageBox.Show("'{0}' inserido(a) com sucesso!", "Cadastro '{0}'", nome);
 
                 Desconectar();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro ao cadastrar nova linha: \n\n" + ex.Message);
+                MessageBox.Show("Erro ao cadastrar: \n\n" + ex.Message);
             }
         }
 

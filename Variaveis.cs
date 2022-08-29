@@ -37,7 +37,7 @@ namespace kibelezaPMS
         // reserva
         public static int codReserva;
         public static string obs, statusReserva;
-        public static DateTime horarioReserva;
+        public static DateTime horarioReserva, dataReserva;
 
         // fone empresa
         public static int codFoneEmpresa;

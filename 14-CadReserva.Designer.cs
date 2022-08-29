@@ -49,6 +49,7 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblCadReserva = new System.Windows.Forms.Label();
+            this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
             this.pnlCadReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +58,7 @@
             // 
             this.pnlCadReserva.BackgroundImage = global::kibelezaPMS.Properties.Resources.reserva;
             this.pnlCadReserva.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlCadReserva.Controls.Add(this.mkdDataCad);
             this.pnlCadReserva.Controls.Add(this.calReserva);
             this.pnlCadReserva.Controls.Add(this.lblDataReserva);
             this.pnlCadReserva.Controls.Add(this.picSair);
@@ -192,8 +194,10 @@
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
+            "AGUARDANDO",
+            "APROVADA",
+            "CANCELADA",
+            "FINALIZADA"});
             this.cmbStatus.Location = new System.Drawing.Point(760, 234);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(222, 21);
@@ -347,6 +351,16 @@
             this.lblCadReserva.Text = "CADASTRO DE RESERVA";
             this.lblCadReserva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // mkdDataCad
+            // 
+            this.mkdDataCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.mkdDataCad.Location = new System.Drawing.Point(184, 403);
+            this.mkdDataCad.Mask = "00/00/0000";
+            this.mkdDataCad.Name = "mkdDataCad";
+            this.mkdDataCad.Size = new System.Drawing.Size(227, 23);
+            this.mkdDataCad.TabIndex = 21;
+            this.mkdDataCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frmCadReserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,5 +406,6 @@
         private System.Windows.Forms.Button btnLimpar;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Label lblCadReserva;
+        private System.Windows.Forms.MaskedTextBox mkdDataCad;
     }
 }

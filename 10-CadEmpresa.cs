@@ -426,18 +426,18 @@ namespace kibelezaPMS
 
         private void dgvFoneEmpresa_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            dgvFoneEmpresa.Sort(dgvFoneEmpresa.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
+            dgvFoneEmpresa.ClearSelection();
+        }
+
+        private void dgvFoneEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             Variaveis.linhaFoneSelecionada = int.Parse(e.RowIndex.ToString());
 
             if (Variaveis.linhaFoneSelecionada >= 0)
             {
                 Variaveis.codEmpresa = Convert.ToInt32(dgvFoneEmpresa[0, Variaveis.linhaFoneSelecionada].Value);
             }
-        }
-
-        private void dgvFoneEmpresa_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            dgvFoneEmpresa.Sort(dgvFoneEmpresa.Columns[1], ListSortDirection.Ascending); // ao clicar no cabeçalho da coluna, obrigar a ordenar pela coluna 1 (nomeEmpresa)
-            dgvFoneEmpresa.ClearSelection();
         }
     }
 }

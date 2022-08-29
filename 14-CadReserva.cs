@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,189 @@ namespace kibelezaPMS
 {
     public partial class frmCadReserva : Form
     {
+        string anoI, mesI, diaI, anoF, mesF, diaF;
+
+        
+
         public frmCadReserva()
         {
             InitializeComponent();
         }
+        public void InserirReserva()
+        {
+            try
+            {
+                banco.Conectar();
 
+                string inserir = "INSERT INTO `reserva`(`idReserva`, `obsReserva`, `dataReserva`, `horaReserva`, `statusReserva`, `idFuncionario`, `idCliente`, `idServico`) VALUES (DEFAULT,@obs,@dataReserva,@horaReserva,@status,@codFuncionario,@codCliente,@codServico)";
+
+                MySqlCommand cmd = new MySqlCommand(inserir, banco.conexao);
+                cmd.Parameters.AddWithValue("@obs", Variaveis.obs);
+                cmd.Parameters.AddWithValue("@dataReserva", Variaveis.dataReserva.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@horaReserva", Variaveis.horarioReserva.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@status", Variaveis.statusReserva);
+                cmd.Parameters.AddWithValue("@codFuncionario", Variaveis.codFuncionario);
+                cmd.Parameters.AddWithValue("@codCliente", Variaveis.codCliente);
+                cmd.Parameters.AddWithValue("@codServico", Variaveis.codServico);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Reserva cadastrada com sucesso!", "CADASTRO DA RESERVA");
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao cadastrar a reserva!\n\n" + ex.Message, "Erro.");
+            }
+        }
+        public void AlterarReserva()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string alterar = "UPDATE `reserva` SET `obsReserva`=@obs,`dataReserva`=@dataReserva,`horaReserva`=@horaReserva,`statusReserva`=@status,`idFuncionario`=@codFuncionario,`idCliente`=@codCliente,`idServico`=@codServico WHERE idReserva=@codReserva";
+
+                MySqlCommand cmd = new MySqlCommand(alterar, banco.conexao);
+                cmd.Parameters.AddWithValue("@obs", Variaveis.obs);
+                cmd.Parameters.AddWithValue("@dataReserva", Variaveis.dataReserva.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@horaReserva", Variaveis.horarioReserva.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@status", Variaveis.statusReserva);
+                cmd.Parameters.AddWithValue("@codFuncionario", Variaveis.codFuncionario);
+                cmd.Parameters.AddWithValue("@codCliente", Variaveis.codCliente);
+                cmd.Parameters.AddWithValue("@codServico", Variaveis.codServico);
+                cmd.Parameters.AddWithValue("@codReserva", Variaveis.codReserva);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Reserva alterada com sucesso!", "ALTERAÇÃO DA RESERVA");
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao alterar a reserva!\n\n" + ex.Message, "Erro.");
+            }
+        }
+        public void CarregarDadosReserva()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT `idReserva`, `obsReserva`, `dataReserva`, `horaReserva`, `statusReserva`, `nomeFuncionario`, `nomeCliente`, `nomeServico` FROM `reserva` INNER JOIN funcionario ON reserva.idFuncionario = funcionario.idFuncionario INNER JOIN cliente ON cliente.idCliente = reserva.idCliente INNER JOIN servico ON servico.idServico = reserva.idServico WHERE idReserva=@codigo";
+
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+                cmd.Parameters.AddWithValue("@codReserva", Variaveis.codReserva);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Variaveis.obs = reader.GetString(1);
+                    Variaveis.dataReserva = reader.GetDateTime(2);
+                    Variaveis.horarioReserva = DateTime.Parse(reader.GetString(3));
+                    Variaveis.statusReserva = reader.GetString(4);
+                    Variaveis.nomeFuncionario = reader.GetString(5);
+                    Variaveis.nomeCliente = reader.GetString(6);
+                    Variaveis.nomeServico = reader.GetString(7);
+
+                    txtCodigo.Text = Variaveis.codReserva.ToString();
+                    txtObservacao.Text = Variaveis.obs;
+                    mkdDataCad.Text = Variaveis.dataReserva.ToString();
+                    cmbHorario.Text = Variaveis.horarioReserva.ToString("HH:mm");
+                    cmbStatus.Text = Variaveis.statusReserva;
+                    cmbFuncionario.Text = Variaveis.nomeFuncionario;
+                    cmbCliente.Text = Variaveis.nomeCliente;
+                    cmbServico.Text = Variaveis.nomeServico;
+                }
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar os dados da reserva!\n\n" + ex.Message, "Erro.");
+            }
+        }
+
+        private void CarregarFuncionarios()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT idFuncionario,nomeFuncionario FROM funcionario ORDER BY nomeFuncionario";
+
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbFuncionario.DataSource = dt;
+                cmbFuncionario.DisplayMember = "nomeFuncionario";
+                cmbFuncionario.ValueMember = "idFuncionario";
+                cmbFuncionario.SelectedIndex = -1;
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar a lista de funcionários!\n\n" + ex.Message, "Erro.");
+            }
+        }
+        private void CarregarClientes()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT idCliente,nomeCliente FROM cliente ORDER BY nomeCliente";
+
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbFuncionario.DataSource = dt;
+                cmbFuncionario.DisplayMember = "nomeCliente";
+                cmbFuncionario.ValueMember = "idCliente";
+                cmbFuncionario.SelectedIndex = -1;
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar a lista de funcionários!\n\n" + ex.Message, "Erro.");
+            }
+        }
+        private void CarregarServicos()
+        {
+            try
+            {
+                banco.Conectar();
+
+                string selecionar = "SELECT idServico,nomeServico FROM servico ORDER BY nomeServico";
+
+                MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                cmbFuncionario.DataSource = dt;
+                cmbFuncionario.DisplayMember = "nomeServico";
+                cmbFuncionario.ValueMember = "idServico";
+                cmbFuncionario.SelectedIndex = -1;
+
+                banco.Desconectar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao carregar a lista de funcionários!\n\n" + ex.Message, "Erro.");
+            }
+        }
         private void picSair_Click(object sender, EventArgs e)
         {
             new frmMenu().Show();

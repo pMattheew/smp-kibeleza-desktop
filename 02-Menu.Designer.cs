@@ -41,9 +41,9 @@
             this.picSair = new System.Windows.Forms.PictureBox();
             this.btnAgendar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAguardar = new System.Windows.Forms.Button();
+            this.btnFinalizar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAprovar = new System.Windows.Forms.Button();
             this.dgvMenu = new System.Windows.Forms.DataGridView();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -84,9 +84,9 @@
             this.pnlMenu.Controls.Add(this.picSair);
             this.pnlMenu.Controls.Add(this.btnAgendar);
             this.pnlMenu.Controls.Add(this.btnEditar);
-            this.pnlMenu.Controls.Add(this.button3);
-            this.pnlMenu.Controls.Add(this.button2);
-            this.pnlMenu.Controls.Add(this.button1);
+            this.pnlMenu.Controls.Add(this.btnAguardar);
+            this.pnlMenu.Controls.Add(this.btnFinalizar);
+            this.pnlMenu.Controls.Add(this.btnCancelar);
             this.pnlMenu.Controls.Add(this.btnAprovar);
             this.pnlMenu.Controls.Add(this.dgvMenu);
             this.pnlMenu.Controls.Add(this.lblUsuario);
@@ -107,19 +107,23 @@
             // 
             // txtCliente
             // 
+            this.txtCliente.Enabled = false;
             this.txtCliente.Location = new System.Drawing.Point(339, 23);
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(373, 25);
             this.txtCliente.TabIndex = 7;
             this.txtCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
             // 
             // txtFuncionario
             // 
+            this.txtFuncionario.Enabled = false;
             this.txtFuncionario.Location = new System.Drawing.Point(339, 54);
             this.txtFuncionario.Name = "txtFuncionario";
             this.txtFuncionario.Size = new System.Drawing.Size(373, 25);
             this.txtFuncionario.TabIndex = 7;
             this.txtFuncionario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtFuncionario.TextChanged += new System.EventHandler(this.txtFuncionario_TextChanged);
             // 
             // chkFuncionario
             // 
@@ -130,6 +134,7 @@
             this.chkFuncionario.TabIndex = 6;
             this.chkFuncionario.Text = "FUNCIONÁRIO(A)";
             this.chkFuncionario.UseVisualStyleBackColor = true;
+            this.chkFuncionario.CheckedChanged += new System.EventHandler(this.chkFuncionario_CheckedChanged);
             // 
             // chkCliente
             // 
@@ -140,12 +145,14 @@
             this.chkCliente.TabIndex = 6;
             this.chkCliente.Text = "CLIENTE";
             this.chkCliente.UseVisualStyleBackColor = true;
+            this.chkCliente.CheckedChanged += new System.EventHandler(this.chkCliente_CheckedChanged);
             // 
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] {
+            "TODAS",
             "APROVADA",
             "CANCELADO",
             "FINALIZADO",
@@ -154,6 +161,7 @@
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(121, 25);
             this.cmbStatus.TabIndex = 5;
+            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // lblHora
             // 
@@ -224,44 +232,47 @@
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // button3
+            // btnAguardar
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(840, 248);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 50);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "AGUARDAR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAguardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            this.btnAguardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAguardar.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnAguardar.ForeColor = System.Drawing.Color.White;
+            this.btnAguardar.Location = new System.Drawing.Point(840, 248);
+            this.btnAguardar.Name = "btnAguardar";
+            this.btnAguardar.Size = new System.Drawing.Size(150, 50);
+            this.btnAguardar.TabIndex = 2;
+            this.btnAguardar.Text = "AGUARDAR";
+            this.btnAguardar.UseVisualStyleBackColor = false;
+            this.btnAguardar.Click += new System.EventHandler(this.btnAguardar_Click);
             // 
-            // button2
+            // btnFinalizar
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(840, 195);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(150, 50);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "FINALIZAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnFinalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizar.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizar.Location = new System.Drawing.Point(840, 195);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(150, 50);
+            this.btnFinalizar.TabIndex = 2;
+            this.btnFinalizar.Text = "FINALIZAR";
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
             // 
-            // button1
+            // btnCancelar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Britannic Bold", 14F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(840, 142);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 50);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "CANCELAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(10)))), ((int)(((byte)(45)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Britannic Bold", 14F);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(840, 142);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(150, 50);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAprovar
             // 
@@ -275,6 +286,7 @@
             this.btnAprovar.TabIndex = 2;
             this.btnAprovar.Text = "APROVAR";
             this.btnAprovar.UseVisualStyleBackColor = false;
+            this.btnAprovar.Click += new System.EventHandler(this.btnAprovar_Click);
             // 
             // dgvMenu
             // 
@@ -285,6 +297,8 @@
             this.dgvMenu.Name = "dgvMenu";
             this.dgvMenu.Size = new System.Drawing.Size(495, 321);
             this.dgvMenu.TabIndex = 1;
+            this.dgvMenu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMenu_CellClick);
+            this.dgvMenu.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMenu_ColumnHeaderMouseClick);
             // 
             // lblUsuario
             // 
@@ -449,9 +463,9 @@
         private System.Windows.Forms.PictureBox picSair;
         private System.Windows.Forms.Button btnAgendar;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAguardar;
+        private System.Windows.Forms.Button btnFinalizar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAprovar;
         private System.Windows.Forms.DataGridView dgvMenu;
         private System.Windows.Forms.Label lblUsuario;

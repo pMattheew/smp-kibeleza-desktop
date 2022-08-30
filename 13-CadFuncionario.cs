@@ -163,9 +163,9 @@ namespace kibelezaPMS
                 Variaveis.statusFuncionario = cmbStatus.Text;
                 Variaveis.nivelFuncionario = cmbNivel.Text;
                 mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                Variaveis.dataCadFuncionario = DateTime.Parse(mkdDataCad.Text);
+                Variaveis.dataCad = DateTime.Parse(mkdDataCad.Text);
                 Variaveis.empresaFuncionario = cmbEmpresa.Text;
-                Variaveis.horarioAtendFuncionario = DateTime.Parse(cmbHorario.Text);
+                Variaveis.horario = DateTime.Parse(cmbHorario.Text);
                 // Variaveis.fotoCliente = "cliente/" + nomeFoto;
 
                 pnlTelefone.Enabled = true;

@@ -31,8 +31,8 @@ namespace kibelezaPMS
                 cmd.Parameters.AddWithValue("@razaoSocial", Variaveis.razaoSocial);
                 cmd.Parameters.AddWithValue("@email", Variaveis.emailEmpresa);
                 cmd.Parameters.AddWithValue("@status", Variaveis.statusEmpresa);
-                cmd.Parameters.AddWithValue("@dataCad", Variaveis.dataCadEmpresa.ToString("yyyy-MM-dd"));
-                cmd.Parameters.AddWithValue("@horario", Variaveis.horarioAtendEmpresa.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@dataCad", Variaveis.dataCad.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@horario", Variaveis.horario.ToString("HH:mm"));
 
                 cmd.ExecuteNonQuery();
 
@@ -44,13 +44,6 @@ namespace kibelezaPMS
             {
                 MessageBox.Show("Erro ao cadastrar a empresa!\n\n" + ex.Message, "Erro.");
             }
-        }
-
-        public class InserirNovaEmpresa
-        {
-            public static int idEmpresa;
-            public static string nomeEmpresa, cnpjCpfEmpresa, razaoSocialEmpresa, emailEmpresa, statusEmpresa;
-            public static DateTime dataCadEmpresa, horarioAtendEmpresa;
         }
 
         private void AlterarEmpresa()
@@ -67,7 +60,7 @@ namespace kibelezaPMS
                 cmd.Parameters.AddWithValue("@razaoSocial", Variaveis.razaoSocial);
                 cmd.Parameters.AddWithValue("@email", Variaveis.emailEmpresa);
                 cmd.Parameters.AddWithValue("@status", Variaveis.statusEmpresa);
-                cmd.Parameters.AddWithValue("@horario", Variaveis.horarioAtendEmpresa.ToString("HH:mm"));
+                cmd.Parameters.AddWithValue("@horario", Variaveis.horario.ToString("HH:mm"));
                 cmd.Parameters.AddWithValue("@codigo", Variaveis.codEmpresa);
 
                 cmd.ExecuteNonQuery();
@@ -103,8 +96,8 @@ namespace kibelezaPMS
                     Variaveis.razaoSocial = reader.GetString(3);
                     Variaveis.emailEmpresa = reader.GetString(4);
                     Variaveis.statusEmpresa = reader.GetString(5);
-                    Variaveis.dataCadEmpresa = reader.GetDateTime(6);
-                    Variaveis.horarioAtendEmpresa = DateTime.Parse(reader.GetString(7));
+                    Variaveis.dataCad = reader.GetDateTime(6);
+                    Variaveis.horario = DateTime.Parse(reader.GetString(7));
 
                     txtCodigo.Text = Variaveis.codEmpresa.ToString();
                     txtNomeEmpresa.Text = Variaveis.nomeEmpresa;
@@ -122,8 +115,8 @@ namespace kibelezaPMS
                     txtRazao.Text = Variaveis.razaoSocial;
                     txtEmail.Text = Variaveis.emailEmpresa;
                     cmbStatus.Text = Variaveis.statusEmpresa;
-                    mkdDataCad.Text = Variaveis.dataCadEmpresa.ToString("dd/MM/yyyy");
-                    cmbHorario.Text = Variaveis.horarioAtendEmpresa.ToString("HH:mm");
+                    mkdDataCad.Text = Variaveis.dataCad.ToString("dd/MM/yyyy");
+                    cmbHorario.Text = Variaveis.horario.ToString("HH:mm");
 
                 }
 
@@ -308,7 +301,7 @@ namespace kibelezaPMS
                 if (Variaveis.funcao == "CADASTRAR")
                 {
                     mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                    Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
+                    Variaveis.dataCad = DateTime.Parse(mkdDataCad.Text);
                 }
 
                 cmbHorario.Focus();
@@ -383,10 +376,10 @@ namespace kibelezaPMS
                 if (Variaveis.funcao == "CADASTRAR")
                 {
                     mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                    Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
+                    Variaveis.dataCad = DateTime.Parse(mkdDataCad.Text);
                 }
-                Variaveis.dataCadEmpresa = DateTime.Parse(mkdDataCad.Text);
-                Variaveis.horarioAtendEmpresa = DateTime.Parse(cmbHorario.Text);
+                Variaveis.dataCad = DateTime.Parse(mkdDataCad.Text);
+                Variaveis.horario = DateTime.Parse(cmbHorario.Text);
 
                 if (Variaveis.funcao == "CADASTRAR")
                 {

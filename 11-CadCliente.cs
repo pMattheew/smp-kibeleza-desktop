@@ -66,7 +66,7 @@ namespace kibelezaPMS
                 cmd.Parameters.AddWithValue("@email", Variaveis.emailCliente);
                 cmd.Parameters.AddWithValue("@senha", Variaveis.senhaCliente);
                 cmd.Parameters.AddWithValue("@status", Variaveis.statusCliente);
-                cmd.Parameters.AddWithValue("@dataCad", Variaveis.dataCadCliente.ToString("yyyy-MM-dd"));
+                cmd.Parameters.AddWithValue("@dataCad", Variaveis.dataCad.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@foto", Variaveis.nomeCliente);
                 cmd.ExecuteNonQuery();
 
@@ -215,7 +215,7 @@ namespace kibelezaPMS
                     Variaveis.emailCliente = reader.GetString(2);
                     Variaveis.senhaCliente = reader.GetString(3);
                     Variaveis.statusCliente = reader.GetString(4);
-                    Variaveis.dataCadCliente = reader.GetDateTime(5);
+                    Variaveis.dataCad = reader.GetDateTime(5);
                     Variaveis.fotoCliente = reader.GetString(6).Remove(0, 8);
 
                     txtCodigo.Text = Variaveis.codCliente.ToString();
@@ -223,7 +223,7 @@ namespace kibelezaPMS
                     txtEmail.Text = Variaveis.emailCliente;
                     txtSenha.Text = Variaveis.senhaCliente;
                     cmbStatus.Text = Variaveis.statusCliente;
-                    mkdDataCad.Text = Variaveis.dataCadCliente.ToString("dd/MM/yyyy");
+                    mkdDataCad.Text = Variaveis.dataCad.ToString("dd/MM/yyyy");
                     picFoto.Image = ByteToImage(GetImgToByte(Variaveis.enderecoServidorFtp + "cliente/" + Variaveis.fotoCliente));                   
 
                 }
@@ -474,7 +474,7 @@ namespace kibelezaPMS
                 Variaveis.senhaCliente = txtSenha.Text;
                 Variaveis.statusCliente = cmbStatus.Text;
                 mkdDataCad.Text = DateTime.Now.ToString("dd/MM/yyyy");
-                Variaveis.dataCadCliente = DateTime.Parse(mkdDataCad.Text);
+                Variaveis.dataCad = DateTime.Parse(mkdDataCad.Text);
                 // Variaveis.fotoCliente = "cliente/" + nomeFoto;
 
                 if (Variaveis.funcao == "CADASTRAR")

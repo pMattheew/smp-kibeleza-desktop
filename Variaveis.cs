@@ -11,6 +11,7 @@ namespace kibelezaPMS
         // geral
         public static string funcao;
         public static int linhaSelecionada, linhaFoneSelecionada;
+        public static DateTime dataCad, horario;
 
         // login 
         public static string usuario, senha, nivel;
@@ -18,17 +19,14 @@ namespace kibelezaPMS
         // empresa
         public static int codEmpresa;
         public static string nomeEmpresa, cnpjCpf, razaoSocial, emailEmpresa, statusEmpresa;
-        public static DateTime dataCadEmpresa, horarioAtendEmpresa;
 
         // cliente
         public static int codCliente;
         public static string nomeCliente, emailCliente, senhaCliente, statusCliente, fotoCliente, caminhoFotoCliente, atFotoCliente;
-        public static DateTime dataCadCliente;
 
         // funcionario
         public static int codFuncionario;
         public static string nomeFuncionario, emailFuncionario, senhaFuncionario, statusFuncionario, nivelFuncionario, empresaFuncionario;
-        public static DateTime dataCadFuncionario, horarioAtendFuncionario;
 
         // serviço
         public static int codServico;
@@ -37,7 +35,6 @@ namespace kibelezaPMS
         // reserva
         public static int codReserva;
         public static string obs, statusReserva;
-        public static DateTime horarioReserva;
 
         // fone empresa
         public static int codFoneEmpresa;

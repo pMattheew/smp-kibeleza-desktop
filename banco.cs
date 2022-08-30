@@ -125,21 +125,20 @@ namespace kibelezaPMS
                 Conectar();
 
                 // função que recebe true/false para concatenar os valores do insert em uma só string
-                static Concatenar(bool @)
+                string Concatenar(bool arroba)
                 {
-                    string resultado;
+                    string resultado = "";
 
-                    period = @ ? ",@" : ",";
+                    string period = arroba ? ",@" : ",";
 
                     foreach(string chave in chaves)
                     {
                         resultado += (period+chave);
                     }
                     return resultado;
-                
                 }
 
-                nome = char.ToUpper(tabela[0]) + tabela.Substring(1);
+                string nome = char.ToUpper(tabela[0]) + tabela.Substring(1);
 
                 string query = "INSERT INTO " + tabela + "(id"+nome  + Concatenar(false) + ")VALUES(DEFAULT" + Concatenar(true) + ")";
 
@@ -147,18 +146,21 @@ namespace kibelezaPMS
 
                 // repetição para dar valor aos parâmetros do insert
                 foreach (string chave in chaves)
-                {
+                {                    
                     if (chave.Contains("dataCad"))
                     {
-                        cmd.Parameters.AddWithValue(chave, Variaveis[chave].ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@"+chave, Variaveis.dataCad.ToString("yyyy-MM-dd"));
                     }
                     else if (chave.Contains("horario"))
                     {
-                        cmd.Parameters.AddWithValue(chave, Variaveis[chave].ToString("HH:mm"));
+                        cmd.Parameters.AddWithValue("@"+chave, Variaveis.horario.ToString("HH:mm")); 
+                        // cmd.Parameters.AddWithValue("@"+chave, Variaveis[chave].ToString("HH:mm")); para que a variavel fosse trazida dinamicamente, alternando entre strings, é necessário que este código retorne o valor da propriedade. possível com reflection e instâncimento.
+                        /* System.Reflection.PropertyInfo propriedade = typeof(Variaveis).GetProperty(chave);
+                        object teste = propriedade.GetValue(propriedade, null); */
                     }
                     else
                     {
-                        cmd.Parameters.AddWithValue(chave, Variaveis[chave]);
+                        cmd.Parameters.AddWithValue("@"+chave, DataBinder);
                     }
                 }
 

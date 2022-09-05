@@ -206,6 +206,23 @@ namespace kibelezaPMS
         {
             pnlCadReserva.Location = new Point(this.Width / 2 - pnlCadReserva.Width / 2, this.Height / 2 - pnlCadReserva.Height / 2);
 
+            CarregarFuncionarios();
+            CarregarClientes();
+            CarregarServicos();
+
+            anoI = DateTime.Now.ToString("yyyy");
+            mesI = DateTime.Now.ToString("MM");
+            diaI = DateTime.Now.ToString("dd");
+
+            anoF = DateTime.Now.AddDays(31).ToString("yyyy");
+            mesF = DateTime.Now.AddDays(31).ToString("MM");
+            diaF = DateTime.Now.AddDays(31).ToString("dd");
+
+            calReserva.MinDate = new System.DateTime(int.Parse(anoI), int.Parse(mesI), int.Parse(diaI), 0,0,0,0);
+            calReserva.MaxDate = new System.DateTime(int.Parse(anoF), int.Parse(mesF), int.Parse(diaF), 0, 0, 0, 0);
+
+            mkdDataCad.Text = calReserva.SelectionStart.ToShortDateString();
+
             if (Variaveis.funcao == "CADASTRAR")
             {
                 lblCadReserva.Text = "CADASTRAR RESERVA";
@@ -255,6 +272,13 @@ namespace kibelezaPMS
             {
                 cmbFuncionario.Focus();
             }
+        }
+
+        private void calReserva_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            mkdDataCad.Text = calReserva.SelectionStart.ToShortDateString();
+            Variaveis.dataReserva = DateTime.Parse(mkdDataCad.Text);
+            cmbHorario.Focus();
         }
 
         private void cmbFuncionario_KeyPress(object sender, KeyPressEventArgs e)
@@ -350,8 +374,21 @@ namespace kibelezaPMS
             else
             {
                 Variaveis.obs = txtObservacao.Text;
+                Variaveis.dataReserva = DateTime.Parse(mkdDataCad.Text);
                 Variaveis.horarioReserva = DateTime.Parse(cmbHorario.Text);
                 Variaveis.statusReserva = cmbStatus.Text;
+                Variaveis.codFuncionario = Convert.ToInt32(cmbFuncionario.SelectedValue);
+                Variaveis.codCliente= Convert.ToInt32(cmbCliente.SelectedValue);
+                Variaveis.codServico= Convert.ToInt32(cmbServico.SelectedValue);
+
+                if (Variaveis.funcao == "AGENDAR")
+                {
+                    InserirReserva();
+                }
+                else
+                {
+                    AlterarReserva();
+                }
 
                 btnSalvar.Enabled = false;
                 btnLimpar.Enabled = false;

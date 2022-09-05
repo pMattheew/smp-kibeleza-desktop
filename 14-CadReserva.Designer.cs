@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlCadReserva = new System.Windows.Forms.Panel();
+            this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
             this.calReserva = new System.Windows.Forms.MonthCalendar();
             this.lblDataReserva = new System.Windows.Forms.Label();
             this.picSair = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,6 @@
             this.btnLimpar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.lblCadReserva = new System.Windows.Forms.Label();
-            this.mkdDataCad = new System.Windows.Forms.MaskedTextBox();
             this.pnlCadReserva.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSair)).BeginInit();
             this.SuspendLayout();
@@ -84,11 +84,22 @@
             this.pnlCadReserva.Size = new System.Drawing.Size(1000, 600);
             this.pnlCadReserva.TabIndex = 4;
             // 
+            // mkdDataCad
+            // 
+            this.mkdDataCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.mkdDataCad.Location = new System.Drawing.Point(184, 403);
+            this.mkdDataCad.Mask = "00/00/0000";
+            this.mkdDataCad.Name = "mkdDataCad";
+            this.mkdDataCad.Size = new System.Drawing.Size(227, 23);
+            this.mkdDataCad.TabIndex = 21;
+            this.mkdDataCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // calReserva
             // 
             this.calReserva.Location = new System.Drawing.Point(184, 234);
             this.calReserva.Name = "calReserva";
             this.calReserva.TabIndex = 2;
+            this.calReserva.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calReserva_DateChanged);
             this.calReserva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.calReserva_KeyPress);
             // 
             // lblDataReserva
@@ -350,16 +361,6 @@
             this.lblCadReserva.TabIndex = 12;
             this.lblCadReserva.Text = "CADASTRO DE RESERVA";
             this.lblCadReserva.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mkdDataCad
-            // 
-            this.mkdDataCad.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.mkdDataCad.Location = new System.Drawing.Point(184, 403);
-            this.mkdDataCad.Mask = "00/00/0000";
-            this.mkdDataCad.Name = "mkdDataCad";
-            this.mkdDataCad.Size = new System.Drawing.Size(227, 23);
-            this.mkdDataCad.TabIndex = 21;
-            this.mkdDataCad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // frmCadReserva
             // 

@@ -84,7 +84,7 @@ namespace kibelezaPMS
             {
                 banco.Conectar();
 
-                string selecionar = "SELECT `idReserva`, `obsReserva`, `dataReserva`, `horaReserva`, `statusReserva`, `nomeFuncionario`, `nomeCliente`, `nomeServico` FROM `reserva` INNER JOIN funcionario ON reserva.idFuncionario = funcionario.idFuncionario INNER JOIN cliente ON cliente.idCliente = reserva.idCliente INNER JOIN servico ON servico.idServico = reserva.idServico WHERE idReserva=@codigo";
+                string selecionar = "SELECT `idReserva`, `obsReserva`, `dataReserva`, DATE_FORMAT(`horaReserva`, '%H:%i'), `statusReserva`, `nomeFuncionario`, `nomeCliente`, `nomeServico` FROM `reserva` INNER JOIN funcionario ON reserva.idFuncionario = funcionario.idFuncionario INNER JOIN cliente ON cliente.idCliente = reserva.idCliente INNER JOIN servico ON servico.idServico = reserva.idServico WHERE idReserva=@codigo";
 
                 MySqlCommand cmd = new MySqlCommand(selecionar, banco.conexao);
                 cmd.Parameters.AddWithValue("@codReserva", Variaveis.codReserva);
